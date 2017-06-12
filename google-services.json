@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "548949132953",
+    "firebase_url": "https://life-simulator-2.firebaseio.com",
+    "project_id": "life-simulator-2",
+    "storage_bucket": "life-simulator-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548949132953:android:b8ccafd1d8e3d953",
+        "android_client_info": {
+          "package_name": "com.qizz.life2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548949132953-hhop86sb2me0suicqcfam6nmvos6i3h7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBWCD0Cq4ZGf2s9KjT9-5Gf6i3cB4Ddro"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>548949132953-2qv4b09enbequus8rgsnlf223d6q0cnk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.548949132953-2qv4b09enbequus8rgsnlf223d6q0cnk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDbuOVsLniBfz1KZ5GYpE73gQd_Q5QEXyg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>548949132953</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.qizz.life2</string>
+	<key>PROJECT_ID</key>
+	<string>life-simulator-2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>life-simulator-2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:548949132953:ios:b8ccafd1d8e3d953</string>
+	<key>DATABASE_URL</key>
+	<string>https://life-simulator-2.firebaseio.com</string>
+</dict>
+</plist>
