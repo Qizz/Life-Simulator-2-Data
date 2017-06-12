@@ -982,7 +982,7 @@ DEBUG
     <commands>
       <player type="change" state="max_hunger" value="500" />
       <player type="change" state="hunger" value="10000" />
-      <player type="change" state="max_mood" value="600" />
+      <player type="change" state="max_mood" value="800" />
       <player type="change" state="mood" value="10000" />
       <player type="change" state="max_energy" value="500" />
       <player type="change" state="energy" value="10000" />
