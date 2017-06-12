@@ -1,0 +1,37 @@
+<ImpactsData>
+  <impact id="impact_elixir_of_youth" duration="150" type="positive">
+    <commands>
+      <player type="change" state="energy" value="player.max_energy / 10"/>
+      <player type="change" state="mood" value="player.max_mood / 10"/>
+      <player type="change" state="hunger" value="player.max_hunger / 10"/>
+    </commands>
+  </impact>
+  
+  <impact id="mild_disease" duration="15" type="negative">
+    <commands>
+      <player type="change" state="energy" value="-player.max_energy / 20"/>
+      <player type="change" state="mood" value="-player.max_mood / 20"/>
+      <player type="change" state="hunger" value="-player.max_hunger / 20"/>
+    </commands>
+  </impact>
+  
+  <impact id="cruel_disease" duration="90" type="negative">
+    <commands>
+      <player type="change" state="energy" value="-player.max_energy / 15"/>
+      <player type="change" state="mood" value="-player.max_mood / 15"/>
+      <player type="change" state="hunger" value="-player.max_hunger / 15"/>
+    </commands>
+  </impact>
+  
+  <impact id="impact_bad_mood" duration="10" type="negative">
+    <commands>
+      <player type="change" state="mood" value="-player.max_mood / 20"/>
+    </commands>
+  </impact>
+  <impact id="impact_weakness" duration="10" type="negative">
+    <commands>
+      <player type="change" state="energy" value="-player.energy / 20"/>
+    </commands>
+  </impact>
+  
+</ImpactsData>

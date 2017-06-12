@@ -1,0 +1,248 @@
+<EventsData>
+  <event id="event_found_gold" visible="true" chance="0.0001" max_count="20" random="true">
+    <requirements>
+      <requirement exp="player.day greater 100"/>
+    </requirements>
+    <commands>
+        <player type="change" state="gold" value="1" />
+    </commands>
+  </event>
+  
+  <event id="event_found_coins" visible="true" chance="0.001" max_count="20" random="true">
+    <requirements>
+      <requirement exp="player.money less 10000"/>
+    </requirements>
+    <commands>
+        <player type="change" state="money" value="player.money / 10" />
+    </commands>
+  </event>
+  
+  <event id="event_won_lottery" visible="true" chance="0.0001" max_count="5" random="true" great="true">
+    <requirements>
+      <requirement exp="player.money less 1000000"/>
+      <requirement exp="player.day greater 2000"/>
+    </requirements>
+    <commands>
+        <player type="change" state="money" value="player.money / 3" />
+    </commands>
+  </event>
+
+  <!--TODO change event chance-->
+  <event id="event_open_programming_book" visible="true" chance="0.003" max_count="1" random="true">
+    <requirements>
+      <requirement exp="player.day greater 50"/>
+    </requirements>
+  </event>
+
+  <!--TODO change event chance-->
+  <event id="event_open_drawing_book" visible="true" chance="0.003" max_count="1" random="true">
+    <requirements>
+      <requirement exp="player.day greater 100"/>
+    </requirements>
+    <commands>
+      <item type="add" id="item_drawing_book"/>
+    </commands>
+  </event>
+  
+  <!--TODO change event chance-->
+  <event id="event_get_monkey_statuette" visible="true" chance="0.0001" max_count="1"  great="true" random="true">
+    <requirements>
+      <requirement exp="player.day greater 2000 and Rand(0,3) == 2"/>
+    </requirements>
+    <commands>
+      <item type="add" id="monkey_statuette"/>
+    </commands>
+  </event>
+  
+  <!--TODO change event chance-->
+  <event id="event_get_rainbow_in_jar" visible="true" chance="0.0001" max_count="1"  great="true"  random="true">
+    <requirements>
+      <requirement exp="player.day greater 2000 and Rand(0,3) == 2"/>
+    </requirements>
+    <commands>
+      <item type="add" id="rainbow_in_jar"/>
+    </commands>
+  </event>
+  
+  <!--TODO change event chance-->
+  <event id="event_get_golden_apple" visible="true" chance="0.0001" max_count="1"  great="true" random="true">
+    <requirements>
+      <requirement exp="player.day greater 2000 and Rand(0,3) == 2"/>
+    </requirements>
+    <commands>
+      <item type="add" id="golden_apple"/>
+    </commands>
+  </event>
+
+  <!--TODO change event chance-->
+  <event id="event_picture_exhibition_win" visible="true" chance="0.02" great="true" random="true">
+    <requirements>
+      <item id="item_picture_in_exhibition" operation="exist"/>
+    </requirements>
+    <commands>
+      <item type="add" id="item_picture_exhibition_prize"/>
+      <item type="remove" id="item_picture_in_exhibition" value="1"/>
+      <player type="change" state="money" value="100 + 3000 * activity.activity_drawing_skills.level * activity.activity_drawing_skills.level" />
+    </commands>
+  </event>
+
+  <!--TODO change event chance-->
+  <event id="event_picture_exhibition_lose" visible="true" chance="0.03" great="false" random="true">
+    <requirements>
+      <item id="item_picture_in_exhibition" operation="exist"/>
+    </requirements>
+    <commands>
+      <item type="remove" id="item_picture_in_exhibition" value="1"/>
+    </commands>
+  </event>
+
+  <!--TODO change event chance-->
+  <event id="university_invited"  visible="true" chance="0.01" max_count="1" random="true" great="true">
+    <requirements>
+      <requirement exp="player.day greater 100"/>
+    </requirements>
+  </event>
+  
+  <event id="event_good_day" visible="true" chance="0.003" max_count="-1" random="true" great="false">
+    <commands>
+        <player type="change" state="max_mood" value="5" />
+        <player type="set" state="mood" value="player.max_mood" />
+    </commands>
+  </event>
+
+  <!--TODO change event chance-->
+  <event id="event_business_restaurant_new_worker" visible="true" chance="0.009" great="false" random="true">
+    <requirements>
+      <item id="business_restaurant" operation="exist"/>
+      <requirement exp="item.business_restaurant.restaurant_workers_salary gequal item.business_restaurant.restaurant_max_workers_salary || Rand(0,10) == 5"/>
+    </requirements>
+    <commands>
+      <item id="business_restaurant" state="restaurant_workers" type="change" value="1"/>
+    </commands>
+  </event>
+
+  <!--TODO change event chance-->
+  <event id="event_business_restaurant_worker_resign" visible="true" chance="0.03" great="false" random="true">
+    <requirements>
+      <item id="business_restaurant" operation="exist"/>
+      <requirement exp="item.business_restaurant.restaurant_workers_salary less item.business_restaurant.restaurant_min_workers_salary || Rand(0,3) == 3"/>
+      <requirement exp="item.business_restaurant.restaurant_workers greater 0"/>
+    </requirements>
+    <commands>
+      <item id="business_restaurant" state="restaurant_workers" type="change" value="-1"/>
+    </commands>
+  </event>
+
+  <!--TODO change event chance-->
+  <event id="event_business_gamedev_studio_new_worker" visible="true" chance="0.009" great="false" random="true">
+    <requirements>
+      <item id="business_gamedev_studio" operation="exist"/>
+      <requirement exp="item.business_gamedev_studio.workers less item.business_gamedev_studio.workers_max"/>
+      <requirement exp="item.business_gamedev_studio.workers_salary gequal item.business_gamedev_studio.max_workers_salary || Rand(0,10) == 5"/>
+    </requirements>
+    <commands>
+      <item id="business_gamedev_studio" state="workers" type="change" value="1"/>
+    </commands>
+  </event>
+
+  <!--TODO change event chance-->
+  <event id="event_business_gamedev_studio_worker_resign" visible="true" chance="0.03" great="false" random="true">
+    <requirements>
+      <item id="business_gamedev_studio" operation="exist"/>
+      <requirement exp="item.business_gamedev_studio.workers_salary less item.business_gamedev_studio.min_workers_salary || Rand(0,6) == 3"/>
+      <requirement exp="item.business_gamedev_studio.workers greater 0"/>
+    </requirements>
+    <commands>
+      <item id="business_gamedev_studio" state="workers" type="change" value="-1"/>
+    </commands>
+  </event>
+
+
+  <event id="event_university_first_finished" great="true"></event>
+  <event id="event_university_second_finished" great="true"></event>
+  <event id="event_university_third_finished" great="true"></event>
+  <event id="event_university_fourth_finished" great="true"></event>
+  
+  
+  <event id="event_programmer_became_middle" great="true"></event>
+  <event id="event_programmer_became_senior" great="true"></event>
+  <event id="event_programmer_became_team_leader" great="true"></event>
+  <event id="event_programmer_became_indie" great="true"></event>
+  <event id="event_programmer_became_indie_studio_owner" great="true"></event>
+  <event id="event_programmer_became_programmissimus" great="true"></event>
+  
+  <event id="event_artist_became_street_artist" great="true"></event>
+  <event id="event_artist_became_local_celebrity" great="true"></event>
+  <event id="event_artist_became_authority" great="true"></event>
+  <event id="event_artist_became_city_celebrity" great="true"></event>
+  <event id="event_artist_became_pride_country" great="true"></event>
+  <event id="event_artist_became_world_celebrity" great="true"></event>
+  
+  <event id="event_cook_became_pizzeria" great="true"></event>
+  <event id="event_cook_became_restaurant" great="true"></event>
+  <event id="event_cook_became_su_chef" great="true"></event>
+  <event id="event_cook_became_chef" great="true"></event>
+  <event id="event_cook_became_restaurateur" great="true"></event>
+  
+  <event id="event_scientist_became_apprentice_inventor" great="true"></event>
+  <event id="event_scientist_became_ufologist" great="true"></event>
+  <event id="event_scientist_became_inventor" great="true"></event>
+  <event id="event_scientist_became_laboratory_owner" great="true"></event>
+  <event id="event_scientist_became_mad" great="true"></event>
+  
+  <event id="event_police_became_officer" great="true"></event>
+  <event id="event_police_became_detective" great="true"></event>
+  <event id="event_police_became_private_detective" great="true"></event>
+  <event id="event_police_became_lieutenant" great="true"></event>
+  <event id="event_police_became_colonel" great="true"></event>
+  <event id="event_police_became_general" great="true"></event>
+
+  <event id="police_solved_crime" visible="true" chance="0.001" random="true">
+    <requirements>
+      <requirement exp="job.job_police.level greater 1"/>
+    </requirements>
+    <commands>
+      <player type="change" state="money" value="Rand(100, 3000) * job.job_police.level" />
+      <player type="change" state="mood" value="player.mood / 1.5" />
+    </commands>
+  </event>
+  
+  <event id="stolen_by_aliens" visible="true" chance="0.001" max_count="1" random="true">
+    <requirements>
+      <requirement exp="job.job_scientist.level equal 3"/>
+    </requirements>
+    <commands>
+      <player type="change" state="energy" value="-player.energy / 1.5" />
+      <player type="change" state="mood" value="-player.mood / 1.5" />
+      <player type="change" state="hunger" value="-player.hunger / 1.5" />
+      <player type="change" state="max_energy" value="800" />
+      <player type="change" state="max_mood" value="800" />
+      <player type="change" state="max_hunger" value="800" />
+    </commands>
+  </event>
+
+  <event id="event_mild_disease" visible="true" chance="0.001" random="true">
+    <commands>
+      <impact id="mild_disease" type="add"/>
+    </commands>
+  </event>
+  
+  <event id="event_cruel_disease" visible="true" chance="0.0001" random="true">
+    <commands>
+      <impact id="cruel_disease" type="add"/>
+    </commands>
+  </event>
+  
+  <event id="event_bad_mood" visible="true" chance="0.004" random="true">
+    <commands>
+      <impact id="impact_bad_mood" type="add"/>
+    </commands>
+  </event>
+  
+  <event id="event_weakness" visible="true" chance="0.005" random="true">
+    <commands>
+      <impact id="impact_weakness" type="add"/>
+    </commands>
+  </event>
+  
+</EventsData>

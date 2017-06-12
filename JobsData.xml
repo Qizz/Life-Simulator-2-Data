@@ -1,0 +1,464 @@
+<!-- -->
+<JobsData>
+
+  <job id="job_programmer">
+    <states>
+      <state name="sell_price" value="0" />
+    </states>
+    <levels>
+      <level name="junior">
+        <commands>
+          <player type="change" state="energy" value="-6" />
+          <player type="change" state="mood" value="-6" />
+          <player type="change" state="hunger" value="-4" />
+          <player type="change" state="money" value="40" />
+        </commands>
+        <levelup>
+          <event id="event_programmer_became_middle"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_programming_skills.level greater 2"/>
+          <requirement exp="event.event_university_first_finished.happened == 1 || item.item_university_diploma.count == 1"/>
+        </requirements>
+      </level>
+      <level name="middle" experience="450">
+        <commands>
+          <player type="change" state="energy" value="-12" />
+          <player type="change" state="mood" value="-8" />
+          <player type="change" state="hunger" value="-8" />
+          <player type="change" state="money" value="110" />
+        </commands>
+        <levelup>
+          <event id="event_programmer_became_senior"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_programming_skills.level greater 3"/>
+          <requirement exp="event.event_university_second_finished.happened == 1 || item.item_university_diploma.count == 1"/>
+        </requirements>
+      </level>
+      <level name="senior" experience="1100">
+        <commands>
+          <player type="change" state="energy" value="-20" />
+          <player type="change" state="mood" value="-10" />
+          <player type="change" state="hunger" value="-14" />
+          <player type="change" state="money" value="180" />
+        </commands>
+        <levelup>
+          <event id="event_programmer_became_team_leader"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_programming_skills.level greater 4"/>
+          <requirement exp="event.event_university_third_finished.happened == 1 || item.item_university_diploma.count == 1"/>
+        </requirements>
+      </level>
+      <level name="team_leader" experience="2300">
+        <commands>
+          <player type="change" state="energy" value="-35" />
+          <player type="change" state="mood" value="-15" />
+          <player type="change" state="hunger" value="-20" />
+          <player type="change" state="money" value="320" />
+        </commands>
+        <levelup>
+          <event id="event_programmer_became_indie"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_programming_skills.level greater 5"/>
+          <requirement exp="event.event_university_fourth_finished.happened == 1 || item.item_university_diploma.count == 1"/>
+        </requirements>
+      </level>
+      <level name="indie" experience="5000">
+        <commands>
+          <player type="change" state="energy" value="-50" />
+          <player type="change" state="mood" value="-100" />
+          <player type="change" state="hunger" value="-40" />
+          <player type="change" state="money" value="500" />
+        </commands>
+        <levelup>
+          <event id="event_programmer_became_indie_studio_owner"/>
+        </levelup>
+      </level>
+      <level name="indie_studio_owner" experience="11000">
+        <commands>
+          <player type="change" state="energy" value="1 - player.max_energy / 20" />
+          <player type="change" state="mood" value="-150 - player.max_mood / 35" />
+          <player type="change" state="hunger" value="-200 - player.max_hunger / 60" />
+          <player type="change" state="money" value="1100" />
+        </commands>
+        <levelup>
+          <event id="event_programmer_became_programmissimus"/>
+        </levelup>
+      </level>
+      <level name="programmissimus" experience="30000">
+        <commands>
+          <player type="change" state="energy" value="1 - player.max_energy / 20" />
+          <player type="change" state="mood" value="-100 - player.max_mood / 23" />
+          <player type="change" state="hunger" value="-130 - player.max_hunger / 54" />
+          <player type="change" state="money" value="3150" />
+        </commands>
+      </level>
+    </levels>
+  </job>
+
+
+  <job id="job_artist">
+    <states>
+      <state name="sell_price" value="0" />
+    </states>
+    <levels>
+      <level name="beginer">
+        <commands>
+          <player type="change" state="energy" value="-5" />
+          <player type="change" state="mood" value="-3" />
+          <player type="change" state="hunger" value="-6" />
+          <player type="change" state="money" value="15" />
+        </commands>
+        <levelup>
+          <event id="event_artist_became_street_artist"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_drawing_skills.level greater 2"/>
+        </requirements>
+      </level>
+      <level name="street_artist" experience="500">
+        <commands>
+          <player type="change" state="energy" value="-13" />
+          <player type="change" state="mood" value="-6" />
+          <player type="change" state="hunger" value="-8" />
+          <player type="change" state="money" value="50" />
+        </commands>
+        <levelup>
+          <event id="event_artist_became_local_celebrity"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_drawing_skills.level greater 3"/>
+        </requirements>
+      </level>
+      <level name="local_celebrity" experience="2200">
+        <commands>
+          <player type="change" state="energy" value="-20" />
+          <player type="change" state="mood" value="-23" />
+          <player type="change" state="hunger" value="-14" />
+          <player type="change" state="money" value="160" />
+        </commands>
+        <levelup>
+          <event id="event_artist_became_authority"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_drawing_skills.level greater 4"/>
+        </requirements>
+      </level>
+      <level name="authority" experience="4500">
+        <commands>
+          <player type="change" state="energy" value="-38" />
+          <player type="change" state="mood" value="-40" />
+          <player type="change" state="hunger" value="-30" />
+          <player type="change" state="money" value="200" />
+        </commands>
+        <levelup>
+          <event id="event_artist_became_city_celebrity"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_drawing_skills.level greater 5"/>
+        </requirements>
+      </level>
+      <level name="city_celebrity" experience="7000">
+        <commands>
+          <player type="change" state="energy" value="-65" />
+          <player type="change" state="mood" value="-60" />
+          <player type="change" state="hunger" value="-40" />
+          <player type="change" state="money" value="350" />
+        </commands>
+        <levelup>
+          <event id="event_artist_became_pride_country"/>
+        </levelup>
+      </level>
+      <level name="pride_country" experience="25000">
+        <commands>
+          <player type="change" state="energy" value="1-player.max_energy / 20" />
+          <player type="change" state="mood" value="-120- player.max_mood / 45" />
+          <player type="change" state="hunger" value="-95- player.max_hunger / 70" />
+          <player type="change" state="money" value="1600" />
+        </commands>
+        <levelup>
+          <event id="event_artist_became_world_celebrity"/>
+        </levelup>
+        <requirements>
+          <requirement exp="item.item_picture_exhibition_prize.count gequal 1"/>
+        </requirements>
+      </level>
+      <level name="world_celebrity" experience="81500">
+        <commands>
+          <player type="change" state="energy" value="1-player.max_energy / 17" />
+          <player type="change" state="mood" value="-100 - player.max_mood / 20" />
+          <player type="change" state="hunger" value="-130 - player.max_hunger / 40" />
+          <player type="change" state="money" value="5500" />
+        </commands>
+      </level>
+    </levels>
+  </job>
+  
+  <job id="job_cook">
+    <states>
+      <state name="sell_price" value="0" />
+    </states>
+    <levels>
+      <level name="fasfood_cook">
+        <commands>
+          <player type="change" state="mood" value="-2" />
+          <player type="change" state="hunger" value="-1" />
+          <player type="change" state="energy" value="-5" />
+          <player type="change" state="money" value="20" />
+        </commands>
+        <levelup>
+          <event id="event_cook_became_pizzeria"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_cooking_skills.level greater 2"/>
+        </requirements>
+      </level>
+      <level name="cook_pizzeria" experience="500">
+        <commands>
+          <player type="change" state="mood" value="-6" />
+          <player type="change" state="hunger" value="-8" />
+          <player type="change" state="energy" value="-13" />
+          <player type="change" state="money" value="80" />
+        </commands>
+        <levelup>
+          <event id="event_cook_became_restaurant"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_cooking_skills.level greater 3"/>
+        </requirements>
+      </level>
+      <level name="cook_restaurant" experience="2200">
+        <commands>
+          <player type="change" state="energy" value="-20" />
+          <player type="change" state="mood" value="-20" />
+          <player type="change" state="hunger" value="-14" />
+          <player type="change" state="money" value="150" />
+        </commands>
+        <levelup>
+          <event id="event_cook_became_su_chef"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_cooking_skills.level greater 4"/>
+        </requirements>
+      </level>
+      <level name="cook_su_chef" experience="8000">
+        <commands>
+          <player type="change" state="energy" value="-110" />
+          <player type="change" state="mood" value="-70" />
+          <player type="change" state="hunger" value="-30" />
+          <player type="change" state="money" value="500" />
+        </commands>
+        <levelup>
+          <event id="event_cook_became_chef"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_cooking_skills.level greater 5"/>
+        </requirements>
+      </level>
+      <level name="cook_chef" experience="15000">
+        <commands>
+          <player type="change" state="energy" value="1-player.max_energy / 22" />
+          <player type="change" state="mood" value="-80 - player.max_mood / 45" />
+          <player type="change" state="hunger" value="-95 - player.max_hunger / 110" />
+          <player type="change" state="money" value="1300" />
+        </commands>
+        <levelup>
+          <event id="event_cook_became_restaurateur"/>
+        </levelup>
+        <requirements>
+          <item id="business_restaurant" operation="exist"/>
+        </requirements>
+      </level>
+      <level name="cook_restaurateur" experience="33000">
+        <commands>
+          <player type="change" state="energy" value="1-player.max_energy / 18" />
+          <player type="change" state="mood" value="-120 - player.max_mood / 22" />
+          <player type="change" state="hunger" value="-95- player.max_hunger / 80" />
+          <player type="change" state="money" value="3400" />
+        </commands>
+      </level>
+    </levels>
+  </job>
+  
+  <job id="job_scientist">
+    <states>
+      <state name="sell_price" value="0" />
+    </states>
+    <levels>
+      <level name="scientist_assistant">
+        <commands>
+          <player type="change" state="energy" value="-6" />
+          <player type="change" state="mood" value="-3" />
+          <player type="change" state="hunger" value="-7" />
+          <player type="change" state="money" value="23" />
+        </commands>
+        <levelup>
+          <event id="event_scientist_became_apprentice_inventor"/>
+        </levelup>
+      </level>
+      <level name="scientist_apprentice_inventor" experience="700">
+        <commands>
+          <player type="change" state="mood" value="-6" />
+          <player type="change" state="hunger" value="-8" />
+          <player type="change" state="energy" value="-13" />
+          <player type="change" state="money" value="80" />
+        </commands>
+        <levelup>
+          <event id="event_scientist_became_ufologist"/>
+        </levelup>
+      </level>
+      <level name="scientist_ufologist" experience="2650">
+        <commands>
+          <player type="change" state="energy" value="-20" />
+          <player type="change" state="mood" value="-20" />
+          <player type="change" state="hunger" value="-14" />
+          <player type="change" state="money" value="170" />
+        </commands>
+        <levelup>
+          <event id="event_scientist_became_inventor"/>
+        </levelup>
+      </level>
+      <level name="scientist_inventor" experience="9000">
+        <commands>
+          <player type="change" state="energy" value="-112" />
+          <player type="change" state="mood" value="-75" />
+          <player type="change" state="hunger" value="-35" />
+          <player type="change" state="money" value="550" />
+        </commands>
+        <levelup>
+          <event id="event_scientist_became_laboratory_owner"/>
+        </levelup>
+      </level>
+      <level name="scientist_laboratory_owner" experience="17000">
+        <commands>
+          <player type="change" state="energy" value="1-player.max_energy / 22" />
+          <player type="change" state="mood" value="-80 - player.max_mood / 38" />
+          <player type="change" state="hunger" value="-95 - player.max_hunger / 35" />
+          <player type="change" state="money" value="1400" />
+        </commands>
+        <levelup>
+          <event id="event_scientist_became_mad"/>
+        </levelup>
+      </level>
+      <level name="scientist_mad" experience="34000">
+        <commands>
+          <player type="change" state="energy" value="1-player.max_energy / 21" />
+          <player type="change" state="mood" value="-120 - player.max_mood / 22" />
+          <player type="change" state="hunger" value="-95- player.max_hunger / 25" />
+          <player type="change" state="money" value="3100" />
+        </commands>
+      </level>
+    </levels>
+  </job>
+
+  
+  <job id="job_police">
+    <states>
+      <state name="sell_price" value="0" />
+    </states>
+    <levels>
+      <level name="police_cadet">
+        <commands>
+          <player type="change" state="energy" value="-7" />
+          <player type="change" state="mood" value="-4" />
+          <player type="change" state="hunger" value="-5" />
+          <player type="change" state="money" value="32" />
+        </commands>
+        <levelup>
+          <event id="event_police_became_officer"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_physique.level greater 2"/>
+        </requirements>
+      </level>
+      
+      <level name="police_officer" experience="1000">
+        <commands>
+          <player type="change" state="mood" value="-7" />
+          <player type="change" state="hunger" value="-9" />
+          <player type="change" state="energy" value="-14" />
+          <player type="change" state="money" value="120" />
+        </commands>
+        <levelup>
+          <event id="event_police_became_detective"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_physique.level greater 3"/>
+        </requirements>
+      </level>
+      
+      <level name="police_detective" experience="2800">
+        <commands>
+          <player type="change" state="energy" value="-24" />
+          <player type="change" state="mood" value="-22" />
+          <player type="change" state="hunger" value="-15" />
+          <player type="change" state="money" value="230" />
+        </commands>
+        <levelup>
+          <event id="event_police_became_private_detective"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_physique.level greater 4"/>
+        </requirements>
+      </level>
+      
+      <level name="police_private_detective" experience="9000">
+        <commands>
+          <player type="change" state="energy" value="-112" />
+          <player type="change" state="mood" value="-75" />
+          <player type="change" state="hunger" value="-35" />
+          <player type="change" state="money" value="600" />
+        </commands>
+        <levelup>
+          <event id="event_police_became_lieutenant"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_physique.level greater 5"/>
+        </requirements>
+      </level>
+      
+      <level name="police_lieutenant" experience="15000">
+        <commands>
+          <player type="change" state="energy" value="1-player.max_energy / 22" />
+          <player type="change" state="mood" value="-80 - player.max_mood / 38" />
+          <player type="change" state="hunger" value="-95 - player.max_hunger / 45" />
+          <player type="change" state="money" value="1600" />
+        </commands>
+        <levelup>
+          <event id="event_police_became_colonel"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_physique.level greater 6"/>
+        </requirements>
+      </level>
+      
+      <level name="police_colonel" experience="38000">
+        <commands>
+          <player type="change" state="energy" value="1-player.max_energy / 21" />
+          <player type="change" state="mood" value="-120 - player.max_mood / 23" />
+          <player type="change" state="hunger" value="-95- player.max_hunger / 35" />
+          <player type="change" state="money" value="3500" />
+        </commands>
+        <levelup>
+          <event id="event_police_became_general"/>
+        </levelup>
+        <requirements>
+          <requirement exp="activity.activity_physique.level greater 7"/>
+        </requirements>
+      </level>
+      
+      <level name="police_general" experience="78000">
+        <commands>
+          <player type="change" state="energy" value="1-player.max_energy / 18" />
+          <player type="change" state="mood" value="-120 - player.max_mood / 22" />
+          <player type="change" state="hunger" value="-95- player.max_hunger / 30" />
+          <player type="change" state="money" value="6100" />
+        </commands>
+      </level>
+    </levels>
+  </job>
+
+</JobsData>
