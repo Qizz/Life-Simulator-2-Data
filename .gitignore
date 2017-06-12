@@ -1,0 +1,6 @@
+GameAnalytics/
+Icons/
+
+*.meta
+*.plist
+*.prefab
