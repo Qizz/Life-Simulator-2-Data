@@ -1091,7 +1091,6 @@ STORE
   <action id="buy_item_garden" category="store">
     <requirements>
       <item id="item_house" operation="exist" />
-      <item id="item_house" operation="exist" />
       <item id="item_garden" operation="unexist" />
     </requirements>
     <commands>
