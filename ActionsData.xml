@@ -149,10 +149,51 @@ GENERAL
       <player type="change" state="money" value="-10 + player.money / -800" />
     </commands>
   </action>
+
+
+
+  <action id="take_loan" category="general">
+    <requirements>
+      <requirement exp="player.money less 26"/>
+      <requirement exp="player.day greater 100"/>
+      <item id="item_apartment" operation="unexist" />
+    </requirements>
+    <commands>
+      <impact id="loan_repayment" type="add"/>
+      <player type="change" state="money" value="1000" />
+    </commands>
+  </action>
+
   
   <!--================================================
 JOB
 ================================================-->
+
+
+  <action id="begin_career_driver" category="job">
+    <requirements>
+      <job operation="no_job" />
+      <event id="event_university_first_finished" operation="happened"/>
+    </requirements>
+    <commands>
+      <job id="job_driver" type="add" />
+    </commands>
+  </action>
+
+  <action id="do_driver_job" category="job">
+    <requirements>
+      <job id="job_driver" operation="exist" />
+    </requirements>
+    <commands>
+      <player type="change" state="energy" value="-2 * job.job_driver.level - player.max_energy / 1000 * job.job_driver.level" />
+      <player type="change" state="hunger" value="-0.9 * job.job_driver.level - player.max_hunger / 1600 * job.job_driver.level" />
+      <player type="change" state="mood" value="-0.6 * job.job_driver.level - player.max_mood / 1400 * job.job_driver.level" />
+      <job id="job_driver" type="change" state="experience" value="job.job_driver.level * 0.13 + 0.8" />
+    </commands>
+  </action>
+
+  <!--total number of taps just for career to get to the top of the carrer should be somewhere between police and programmer career-->
+
 
   <action id="begin_career_programmer" category="job">
     <requirements>
@@ -523,8 +564,52 @@ JOB
       <item type="remove" id="item_invention" value="1"/>
     </commands>
   </action>
+
+  <!-- DELIVERY COMPANY-->
   
-  <!--================================================
+  <!-- TODO ADD: <requirement exp="job.job_driver.level gequal 5" />-->
+  
+  <action id="buy_delivery_company" category="job">
+    <requirements>
+      <item id="business_delivery_company" operation="unexist" />
+      
+    </requirements>
+    <commands>
+      <player type="change" state="money" value="-900000" />
+      <item type="add" id="business_delivery_company" />
+    </commands>
+  </action>
+
+  <action id="upgrade_delivery_company" category="job">
+    <requirements>
+      <item id="business_delivery_company" operation="exist" />
+      <item id="business_delivery_company" operation="can_update" />
+      <requirement exp="item.business_delivery_company.delivery_company_drivers gequal item.business_delivery_company.delivery_company_drivers_max" />
+    </requirements>
+    <commands>
+      <player type="change" state="money" value="- item.business_delivery_company.level * item.business_delivery_company.level * 4300000" />
+      <item type="levelup" id="business_delivery_company" />
+    </commands>
+  </action>
+
+  <action id="hire_delivery_company_driver" category="job">
+    <requirements>
+      <requirement exp="impact.delivery_company_new_driver.duration_left greater 0" />
+    </requirements>
+    <commands>
+      <item id="business_delivery_company" state="delivery_company_drivers" type="change" value="1" />
+      <player type="change" state="money" value="-70000 * item.business_delivery_company.level + 5000 * item.business_delivery_company.level * item.business_delivery_company.level + 5" />
+      <impact id="delivery_company_new_driver" type="remove" />
+    </commands>
+  </action>
+
+    <!--
+basic idea how to get a new driver was have an event to be able hire new worker, that option/action will last for 100 days (impact data)
+and during that time you are able to hire 1 worker. Payment for action hire_delivery_company_driver is for buying truck  for him.  
+  -->
+
+
+    <!--================================================
 Activities
 ================================================-->
 
@@ -635,7 +720,140 @@ Activities
       <activity id="activity_physique" state="experience" value="1 + 0.3 *  activity.activity_physique.level" requirement="false"/>
     </commands>
   </action>
+
   
+  <!--DLC-->
+
+  <action id="activity_start_standard_dlc" category="activity">
+    <requirements>
+      <activity id="activity_standard_dlc" operation="unexist" />
+      <event id="event_standard_dlc_finished" operation="nothappened" />
+      <event id="event_start_standard_dlc" operation="happened" />
+    </requirements>
+    <commands>
+      <activity type="add" id="activity_standard_dlc" />
+    </commands>
+  </action>
+
+  <action id="attend_standard_dlc" category="activity">
+    <requirements>
+      <activity id="activity_standard_dlc" operation="exist" />
+      <activity id="activity_standard_dlc" operation="can_update" />
+    </requirements>
+    <commands>
+      <player type="change" state="energy" value="-10" />
+      <player type="change" state="hunger" value="-10" />
+      <player type="change" state="mood" value="-5" />
+      <player type="change" state="money" value="-10" />
+      <activity id="activity_standard_dlc" state="experience" value="1.5"/>
+    </commands>
+  </action>
+
+
+  <action id="activity_start_chauffeur_dlc" category="activity">
+    <requirements>
+      <activity id="activity_chauffeur_dlc" operation="unexist" />
+      <event id="event_chauffeur_dlc_finished" operation="nothappened" />
+      <event id="event_start_chauffeur_dlc" operation="happened" />
+    </requirements>
+    <commands>
+      <activity type="add" id="activity_chauffeur_dlc" />
+    </commands>
+  </action>
+
+  <action id="attend_chauffeur_dlc" category="activity">
+    <requirements>
+      <activity id="activity_chauffeur_dlc" operation="exist" />
+      <activity id="activity_chauffeur_dlc" operation="can_update" />
+    </requirements>
+    <commands>
+      <player type="change" state="energy" value="-20" />
+      <player type="change" state="hunger" value="-20" />
+      <player type="change" state="mood" value="-15" />
+      <player type="change" state="money" value="-20" />
+      <activity id="activity_chauffeur_dlc" state="experience" value="2"/>
+    </commands>
+  </action>
+
+
+  <action id="activity_start_classc_dlc" category="activity">
+    <requirements>
+      <activity id="activity_classc_dlc" operation="unexist" />
+      <event id="event_classc_dlc_finished" operation="nothappened" />
+      <event id="event_start_classc_dlc" operation="happened" />
+    </requirements>
+    <commands>
+      <activity type="add" id="activity_classc_dlc" />
+    </commands>
+  </action>
+
+  <action id="attend_classc_dlc" category="activity">
+    <requirements>
+      <activity id="activity_classc_dlc" operation="exist" />
+      <activity id="activity_classc_dlc" operation="can_update" />
+    </requirements>
+    <commands>
+      <player type="change" state="energy" value="-30" />
+      <player type="change" state="hunger" value="-30" />
+      <player type="change" state="mood" value="-20" />
+      <player type="change" state="money" value="-30" />
+      <activity id="activity_classc_dlc" state="experience" value="3"/>
+    </commands>
+  </action>
+
+
+  <action id="activity_start_classb_dlc" category="activity">
+    <requirements>
+      <activity id="activity_classb_dlc" operation="unexist" />
+      <event id="event_classb_dlc_finished" operation="nothappened" />
+      <event id="event_start_classb_dlc" operation="happened" />
+    </requirements>
+    <commands>
+      <activity type="add" id="activity_classb_dlc" />
+    </commands>
+  </action>
+
+  <action id="attend_classb_dlc" category="activity">
+    <requirements>
+      <activity id="activity_classb_dlc" operation="exist" />
+      <activity id="activity_classb_dlc" operation="can_update" />
+    </requirements>
+    <commands>
+      <player type="change" state="energy" value="-45" />
+      <player type="change" state="hunger" value="-45" />
+      <player type="change" state="mood" value="-30" />
+      <player type="change" state="money" value="-35" />
+      <activity id="activity_classb_dlc" state="experience" value="4"/>
+    </commands>
+  </action>
+
+
+  <action id="activity_start_classa_dlc" category="activity">
+    <requirements>
+      <activity id="activity_classa_dlc" operation="unexist" />
+      <event id="event_classa_dlc_finished" operation="nothappened" />
+      <event id="event_start_classa_dlc" operation="happened" />
+    </requirements>
+    <commands>
+      <activity type="add" id="activity_classa_dlc" />
+    </commands>
+  </action>
+
+  <action id="attend_classa_dlc" category="activity">
+    <requirements>
+      <activity id="activity_classa_dlc" operation="exist" />
+      <activity id="activity_classa_dlc" operation="can_update" />
+    </requirements>
+    <commands>
+      <player type="change" state="energy" value="-60" />
+      <player type="change" state="hunger" value="-60" />
+      <player type="change" state="mood" value="-45" />
+      <player type="change" state="money" value="-60" />
+      <activity id="activity_classa_dlc" state="experience" value="5"/>
+    </commands>
+  </action>
+
+    <!--dlc = driving license course-->
   <!--================================================
 STORE
 ================================================-->
@@ -703,7 +921,7 @@ STORE
       <item id="item_house" operation="unexist" />
     </requirements>
     <commands>
-      <player type="change" state="money" value="-4000" />
+      <player type="change" state="money" value="-155000" />
       <item id="item_house" type="add"/>
     </commands>
   </action>
@@ -715,7 +933,7 @@ STORE
     </requirements>
     <commands>
       <player type="change" state="money" value="-7500 * item.item_house.level * item.item_house.level * 62" />
-      <item type="change" id="item_house" state="sell_price" value="1250 * item.item_apartment.level * item.item_apartment.level * 20" />
+      <item type="change" id="item_house" state="sell_price" value="1250 * item.item_house.level * item.item_house.level * 20" />
       <item type="levelup" id="item_house" />
     </commands>
   </action>
@@ -873,6 +1091,7 @@ STORE
   <action id="buy_item_garden" category="store">
     <requirements>
       <item id="item_house" operation="exist" />
+      <item id="item_house" operation="exist" />
       <item id="item_garden" operation="unexist" />
     </requirements>
     <commands>
@@ -883,6 +1102,7 @@ STORE
 
   <action id="upgrade_item_garden" category="store">
     <requirements>
+      <item id="item_house" operation="exist" />
       <item id="item_garden" operation="exist" />
       <item id="item_garden" operation="not_maxlevel" />
     </requirements>
@@ -893,10 +1113,107 @@ STORE
     </commands>
   </action>
 
+  <!--GARAGE-->
+
+    <action id="buy_item_garage" category="store">
+      <requirements>
+        <item id="item_house" operation="exist" />
+        <item id="item_garage" operation="unexist" />
+      </requirements>
+      <commands>
+        <player type="change" state="money" value="-3500" />
+        <item type="add" id="item_garage" />
+      </commands>
+    </action>
+
+    <action id="upgrade_item_garage" category="store">
+      <requirements>
+        <item id="item_house" operation="exist" />
+        <item id="item_garage" operation="exist" />
+        <item id="item_garage" operation="not_maxlevel" />
+      </requirements>
+      <commands>
+        <player type="change" state="money" value="-3500 * item.item_garage.level * item.item_garage.level * 10" />
+        <item type="change" id="item_garage" state="sell_price" value="2150 * item.item_garage.level * 5" />
+        <item type="levelup" id="item_garage" />
+      </commands>
+    </action>
+
+
+  <!--PARKING SPACE-->
+
+  <action id="buy_item_parking_space" category="store">
+    <requirements>
+      <item id="item_apartment" operation="exist" />
+      <item id="item_parking_space" operation="unexist" />
+    </requirements>
+    <commands>
+      <player type="change" state="money" value="-1500" />
+      <item type="add" id="item_parking_space" />
+    </commands>
+  </action>
+
+
+  <!--CAR-->
+
+  <action id="buy_item_car" category="store">
+    <requirements>
+      <item id="item_car" operation="unexist" />
+      <item id="item_parking_space" operation="exist" />
+      <event id="event_standard_dlc_finished"  operation="happened" />
+    </requirements>
+    <commands>
+      <player type="change" state="money" value="-3000" />
+      <item type="add" id="item_car" />
+    </commands>
+  </action>
+
+  <action id="upgrade_item_car" category="store">
+    <requirements>
+      <item id="item_car" operation="exist" />
+      <item id="item_car" operation="not_maxlevel" />
+    </requirements>
+    <commands>
+      <player type="change" state="money"
+              value="-1250 * item.item_car.level * item.item_car.level * item.item_car.level * item.item_car.level * item.item_car.level - 20000" />
+      <item type="change" id="item_car" state="sell_price"
+            value="1250 * item.item_car.level * item.item_car.level * item.item_car.level + 5000" />
+      <item type="levelup" id="item_car" />
+    </commands>
+  </action>
+
+  <!--BOAT-->
+
+  <action id="buy_item_boat" category="store">
+    <requirements>
+      <item id="item_house" operation="exist" />
+      <item id="item_boat" operation="unexist" />
+    </requirements>
+    <commands>
+      <player type="change" state="money" value="-13500" />
+      <item type="add" id="item_boat" />
+    </commands>
+  </action>
+
+  <action id="upgrade_item_boat" category="store">
+    <requirements>
+      <item id="item_house" operation="exist" />
+      <item id="item_boat" operation="exist" />
+      <item id="item_boat" operation="not_maxlevel" />
+    </requirements>
+    <commands>
+      <player type="change" state="money" value="-9500 * item.item_boat.level * item.item_boat.level * 55" />
+      <item type="change" id="item_boat" state="sell_price" value="4250 * item.item_boat.level * 43" />
+      <item type="levelup" id="item_boat" />
+    </commands>
+  </action>
+
+  
   <!--pets-->
 
     <action id="buy_item_pet_dog" category="store">
       <requirements>
+        <item id="item_house" operation="exist" />
         <item id="item_pet_dog" operation="unexist" />
         <item id="item_pet_cat" operation="unexist" />
         <item id="item_pet_hamster" operation="unexist" />
@@ -910,6 +1227,7 @@ STORE
 
     <action id="buy_item_pet_cat" category="store">
       <requirements>
+        <item id="item_house" operation="exist" />
         <item id="item_pet_dog" operation="unexist" />
         <item id="item_pet_cat" operation="unexist" />
         <item id="item_pet_hamster" operation="unexist" />
@@ -923,6 +1241,7 @@ STORE
 
     <action id="buy_item_pet_hamster" category="store">
       <requirements>
+        <item id="item_house" operation="exist" />
         <item id="item_pet_dog" operation="unexist" />
         <item id="item_pet_cat" operation="unexist" />
         <item id="item_pet_hamster" operation="unexist" />
@@ -936,6 +1255,7 @@ STORE
 
     <action id="buy_item_pet_gold_fish" category="store">
       <requirements>
+        <item id="item_house" operation="exist" />
         <item id="item_pet_dog" operation="unexist" />
         <item id="item_pet_cat" operation="unexist" />
         <item id="item_pet_hamster" operation="unexist" />

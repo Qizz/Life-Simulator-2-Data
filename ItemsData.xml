@@ -128,9 +128,9 @@
       </level>
       <level name="mansion">
         <receive>
-          <player undo="true" type="change" state="max_energy" value="6750" />
-          <player undo="true" type="change" state="max_mood" value="4500" />
-          <player undo="true" type="change" state="max_hunger" value="4200" />
+          <player undo="true" type="change" state="max_energy" value="8750" />
+          <player undo="true" type="change" state="max_mood" value="6500" />
+          <player undo="true" type="change" state="max_hunger" value="6200" />
         </receive>
         <commands>
           <player type="change" state="energy" value="150" />
@@ -905,6 +905,13 @@
     </levels>
   </item>
 
+  <!--PARKING SPACE-->
+
+    <item id="item_parking_space" visible="true" max_count="1">
+      <states>
+        <state name="sell_price" value="0" />
+      </states>
+    </item>
 
   <!--CAR-->
 
@@ -916,12 +923,14 @@
       <level name="old_rusty_car">
         <receive>
           <player undo="true" type="change" state="max_mood" value="50" />
+          <player undo="true" type="change" state="max_energy" value="45" />
         </receive>
       </level>
 
       <level name="old_car">
         <receive>
           <player undo="true" type="change" state="max_mood" value="125" />
+          <player undo="true" type="change" state="max_energy" value="100" />
         </receive>
         <requirements>
           <requirement exp="item.item_apartment.level greater 1 || item.item_house.level greater 1" />
@@ -931,6 +940,7 @@
       <level name="regular_car">
         <receive>
           <player undo="true" type="change" state="max_mood" value="275" />
+          <player undo="true" type="change" state="max_energy" value="230" />
         </receive>
         <requirements>
           <requirement exp="item.item_apartment.level greater 2 || item.item_house.level greater 2" />
@@ -940,6 +950,7 @@
       <level name="expensive_car">
         <receive>
           <player undo="true" type="change" state="max_mood" value="500" />
+          <player undo="true" type="change" state="max_energy" value="450" />
         </receive>
         <requirements>
           <requirement exp="item.item_apartment.level greater 3 || item.item_house.level greater 3" />
@@ -949,12 +960,69 @@
       <level name="very_expensive_car">
         <receive>
           <player undo="true" type="change" state="max_mood" value="1500" />
+          <player undo="true" type="change" state="max_energy" value="1300" />
         </receive>
         <commands>
           <player type="change" state="mood" value="80" />
+          <player type="change" state="max_energy" value="0.3" />
         </commands>
         <requirements>
           <requirement exp="item.item_apartment.level greater 4 || item.item_house.level greater 4" />
+        </requirements>
+      </level>
+    </levels>
+  </item>
+
+  <!--BOAT-->
+
+  <item id="item_boat" visible="true" max_count="1">
+    <states>
+      <state name="sell_price" value="3250" />
+    </states>
+    <levels>
+      <level name="small_old_boat">
+        <receive>
+          <player undo="true" type="change" state="max_mood" value="50" />
+        </receive>
+      </level>
+
+      <level name="small_boat">
+        <receive>
+          <player undo="true" type="change" state="max_mood" value="150" />
+        </receive>
+        <requirements>
+          <requirement exp="item.item_house.level greater 1" />
+        </requirements>
+      </level>
+
+      <level name="boat">
+        <receive>
+          <player undo="true" type="change" state="max_mood" value="700" />
+        </receive>
+        <requirements>
+          <requirement exp="item.item_house.level greater 2" />
+        </requirements>
+      </level>
+
+      <level name="small_yacht">
+        <receive>
+          <player undo="true" type="change" state="max_mood" value="1600" />
+        </receive>
+        <requirements>
+          <requirement exp="item.item_house.level greater 3" />
+        </requirements>
+      </level>
+
+      <level name="yacht">
+        <receive>
+          <player undo="true" type="change" state="max_mood" value="2750" />
+        </receive>
+        <commands>
+          <player type="change" state="mood" value="100" />
+          <player type="change" state="max_mood" value="0.3" />
+        </commands>
+        <requirements>
+          <requirement exp="item.item_house.level greater 4" />
         </requirements>
       </level>
     </levels>
@@ -1014,6 +1082,140 @@
       <player type="change" state="money" value="-10" />
     </commands>
   </item>
+  
+  
+  <!--DLC-->
+
+  <item id="item_standard_driving_license" visible="true" max_count="1">
+    <receive>
+      <player undo="true" type="change" state="max_mood" value="50" />
+    </receive>
+    <commands>
+      <player type="change" state="mood" value="5" />
+    </commands>
+  </item>
+
+  <item id="item_chauffeur_driving_license" visible="true" max_count="1">
+    <receive>
+      <player undo="true" type="change" state="max_mood" value="125" />
+      <item type="remove" id="item_standard_driving_license"/>
+    </receive>
+    <commands>
+      <player type="change" state="mood" value="10" />
+    </commands>
+  </item>
+
+  <item id="item_classc_driving_license" visible="true" max_count="1">
+    <receive>
+      <player undo="true" type="change" state="max_mood" value="200" />
+      <item type="remove" id="item_chauffeur_driving_license"/>
+    </receive>
+    <commands>
+      <player type="change" state="mood" value="20" />
+    </commands>
+  </item>
+
+  <item id="item_classb_driving_license" visible="true" max_count="1">
+    <receive>
+      <player undo="true" type="change" state="max_mood" value="300" />
+      <item type="remove" id="item_classb_driving_license"/>
+    </receive>
+    <commands>
+      <player type="change" state="mood" value="40" />
+    </commands>
+  </item>
+
+  <item id="item_classa_driving_license" visible="true" max_count="1">
+    <receive>
+      <player undo="true" type="change" state="max_mood" value="400" />
+      <item type="remove" id="item_classa_driving_license"/>
+    </receive>
+    <commands>
+      <player type="change" state="mood" value="75" />
+    </commands>
+  </item>
 
 
+  <!-- delivery company-->
+
+  <item id="business_delivery_company" visible="true" max_count="1" category="job">
+    <states>
+      <state name="sell_price" value="350000" />
+
+      <state name="cargo_deliveries" value="0" visible="true" />
+      <state name="cargo_deliveries_max" value="0" visible="false"/>
+
+      <state name="delivery_company_drivers" value="0" visible="true" />
+      <state name="delivery_company_drivers_max" value="10" visible="false"/>
+
+      <state name="delivery_company_drivers_salary" value="1" visible="true" />
+    </states>
+
+    <levels>
+      <level name="small_local_delivery_company">
+        <receive>
+        <item id="business_delivery_company" type="set" state="sell_price" value="350000"  visible="false"/>
+        <item id="business_delivery_company" type="set" state="delivery_company_drivers_salary" value="30"  visible="false"/>
+        <item id="business_delivery_company" type="set" state="delivery_company_drivers_max" value="10"  visible="false" />
+      </receive>
+      <commands>
+        <player type="change" state="energy" value="-55 - item.business_delivery_company.delivery_company_drivers * player.max_energy / 675" />
+        <player type="change" state="mood" value="-50 - item.business_delivery_company.delivery_company_drivers * player.max_mood / 625" />
+        <player type="change" state="hunger" value="-20 - item.business_delivery_company.delivery_company_drivers * player.max_hunger / 750" />
+        <item type="set" id="business_delivery_company" state="cargo_deliveries_max" value="item.business_delivery_company.delivery_company_drivers * 4" />
+        <item type="set" id="business_delivery_company" state="cargo_deliveries" value="Rand(0, item.business_delivery_company.cargo_deliveries_max)" />
+        <player type="change" state="money" value="item.business_delivery_company.cargo_deliveries * 230 * if(job.job_driver.level == 7, 1.3, 1) - item.business_delivery_company.delivery_company_drivers * item.business_delivery_company.delivery_company_drivers_salary" />
+      </commands>
+      </level>
+
+      <level name="big_local_delivery_company">
+        <receive>
+          <item id="business_delivery_company" type="set" state="sell_price" value="1500000"  visible="false"/>
+          <item id="business_delivery_company" type="set" state="delivery_company_drivers_salary" value="50"  visible="false"/>
+          <item id="business_delivery_company" type="set" state="delivery_company_drivers_max" value="25"  visible="false"/>
+        </receive>
+        <commands>
+          <player type="change" state="energy" value="-55 - item.business_delivery_company.delivery_company_drivers * player.max_energy / 675" />
+          <player type="change" state="mood" value="-50 - item.business_delivery_company.delivery_company_drivers * player.max_mood / 625" />
+          <player type="change" state="hunger" value="-20 - item.business_delivery_company.delivery_company_drivers * player.max_hunger / 750" />
+          <item type="set" id="business_delivery_company" state="cargo_deliveries_max" value="item.business_delivery_company.delivery_company_drivers * 3" />
+          <item type="set" id="business_delivery_company" state="cargo_deliveries" value="Rand(0, item.business_delivery_company.cargo_deliveries_max)" />
+          <player type="change" state="money" value="item.business_delivery_company.cargo_deliveries * 350 * if(job.job_driver.level == 7, 1.3, 1) - item.business_delivery_company.delivery_company_drivers * item.business_delivery_company.delivery_company_drivers_salary" />
+        </commands>
+      </level>
+
+      <level name="interstate_delivery_company">
+        <receive>
+          <item id="business_delivery_company" type="set" state="sell_price" value="3250000"  visible="false"/>
+          <item id="business_delivery_company" type="set" state="delivery_company_drivers_salary" value="75"  visible="false"/>
+          <item id="business_delivery_company" type="set" state="delivery_company_drivers_max" value="50"  visible="false"/>
+        </receive>
+        <commands>
+          <player type="change" state="energy" value="-55 - item.business_delivery_company.delivery_company_drivers * player.max_energy / 675" />
+          <player type="change" state="mood" value="-50 - item.business_delivery_company.delivery_company_drivers * player.max_mood / 625" />
+          <player type="change" state="hunger" value="-20 - item.business_delivery_company.delivery_company_drivers * player.max_hunger / 750" />
+          <item type="set" id="business_delivery_company" state="cargo_deliveries_max" value="item.business_delivery_company.delivery_company_drivers * 2" />
+          <item type="set" id="business_delivery_company" state="cargo_deliveries" value="Rand(0, item.business_delivery_company.cargo_deliveries_max)" />
+          <player type="change" state="money" value="item.business_delivery_company.cargo_deliveries * 580 * if(job.job_driver.level == 7, 1.3, 1) - item.business_delivery_company.delivery_company_drivers * item.business_delivery_company.delivery_company_drivers_salary" />
+        </commands>
+      </level>
+      
+      <level name="international_delivery_company">
+        <receive>
+          <item id="business_delivery_company" type="set" state="sell_price" value="8500000"  visible="false" />
+          <item id="business_delivery_company" type="set" state="delivery_company_drivers_salary" value="90"  visible="false" />
+          <item id="business_delivery_company" type="set" state="delivery_company_drivers_max" value="100"  visible="false" />
+        </receive>
+        <commands>
+          <player type="change" state="energy" value="-55 - item.business_delivery_company.delivery_company_drivers * player.max_energy / 675" />
+          <player type="change" state="mood" value="-50 - item.business_delivery_company.delivery_company_drivers * player.max_mood / 625" />
+          <player type="change" state="hunger" value="-20 - item.business_delivery_company.delivery_company_drivers * player.max_hunger / 750" />
+          <item type="set" id="business_delivery_company" state="cargo_deliveries_max" value="item.business_delivery_company.delivery_company_drivers" />
+          <item type="set" id="business_delivery_company" state="cargo_deliveries" value="Rand(0, item.business_delivery_company.cargo_deliveries_max)" />
+          <player type="change" state="money" value="item.business_delivery_company.cargo_deliveries * 1325 * if(job.job_driver.level == 7, 1.3, 1) - item.business_delivery_company.delivery_company_drivers * item.business_delivery_company.delivery_company_drivers_salary" />
+        </commands>
+      </level>
+    </levels>
+  </item>
+  
 </ItemsData>

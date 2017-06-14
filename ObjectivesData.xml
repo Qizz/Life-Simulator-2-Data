@@ -13,7 +13,22 @@
       <player type="change" state="max_hunger" value="500" />
     </commands>
   </objective>
-  
+
+  <objective id="get_standard_driving_license" visible="true">
+    <open>
+      <item id="item_parking_space" operation="exist" />
+    </open>
+    <achieve>
+      <item id="item_standard_driving_license" operation="exist" />
+    </achieve>
+    <commands>
+      <player type="change" state="max_energy" value="50" />
+      <player type="change" state="max_mood" value="25" />
+      <player type="change" state="max_hunger" value="50" />
+    </commands>
+  </objective>
+
+
   <objective id="create_first_program" visible="true">
     <open>
       <requirement exp="job.job_programmer.count notequal 0"/>
@@ -52,7 +67,36 @@
       <player type="change" state="max_mood" value="1300" />
     </commands>
   </objective>
-  
+
+  <objective id="driver_become_logistics_expert" visible="true">
+    <open>
+      <requirement exp="job.job_driver.level gequal 4"/>
+    </open>
+    <achieve>
+      <requirement exp="job.job_driver.level gequal 7"/>
+    </achieve>
+    <commands>
+      <player type="change" state="max_energy" value="1400" />
+      <player type="change" state="max_mood" value="1250" />
+      <player type="change" state="max_hunger" value="1500" />
+    </commands>
+  </objective>
+
+  <objective id="driver_become_bus_driver" visible="true">
+    <open>
+      <requirement exp="job.job_driver.level greater 1"/>
+    </open>
+    <achieve>
+      <requirement exp="job.job_driver.level gequal 4"/>
+    </achieve>
+    <commands>
+      <player type="change" state="max_energy" value="400" />
+      <player type="change" state="max_mood" value="350" />
+      <player type="change" state="max_hunger" value="400" />
+    </commands>
+  </objective>
+
+
   <objective id="police_become_general" visible="true">
     <open>
       <requirement exp="job.job_police.level gequal 4"/>

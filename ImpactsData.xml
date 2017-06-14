@@ -34,4 +34,12 @@
     </commands>
   </impact>
   
+  
+  <impact id="delivery_company_new_driver" duration="100" type="positive"></impact>
+  
+  <impact id="loan_repayment" duration="250" type="negative">
+    <commands>
+      <player type="change" state="money" value="-5"/>
+    </commands>
+  </impact>
 </ImpactsData>

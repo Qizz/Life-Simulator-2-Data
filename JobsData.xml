@@ -461,4 +461,107 @@
     </levels>
   </job>
 
+
+
+
+  <job id="job_driver">
+    <states>
+      <state name="sell_price" value="0" />
+    </states>
+    <levels>
+      <level name="dispatcher">
+        <commands>
+          <player type="change" state="energy" value="-7" />
+          <player type="change" state="mood" value="-5" />
+          <player type="change" state="hunger" value="-6" />
+          <player type="change" state="money" value="35" />
+        </commands>
+        <levelup>
+          <event id="event_driver_became_taxi_driver"/>
+        </levelup>
+        <requirements>
+          <item id="item_chauffeur_driving_license" operation="exist" />
+        </requirements>
+      </level>
+      <level name="taxi_driver" experience="750">
+        <commands>
+          <player type="change" state="energy" value="-14" />
+          <player type="change" state="mood" value="-9" />
+          <player type="change" state="hunger" value="-12" />
+          <player type="change" state="money" value="110" />
+        </commands>
+        <levelup>
+          <event id="event_driver_became_minibus_driver"/>
+        </levelup>
+        <requirements>
+          <item id="item_chauffeur_driving_license" operation="exist" />
+        </requirements>
+      </level>
+      <level name="minibus_driver" experience="2000">
+        <commands>
+          <player type="change" state="energy" value="-25" />
+          <player type="change" state="mood" value="-22" />
+          <player type="change" state="hunger" value="-17" />
+          <player type="change" state="money" value="190" />
+        </commands>
+        <levelup>
+          <event id="event_driver_became_bus_driver"/>
+        </levelup>
+        <requirements>
+          <item id="item_classc_driving_license" operation="exist" />
+        </requirements>
+      </level>
+      <level name="bus_driver" experience="4500">
+        <commands>
+          <player type="change" state="energy" value="-70" />
+          <player type="change" state="mood" value="-50" />
+          <player type="change" state="hunger" value="-32" />
+          <player type="change" state="money" value="320" />
+        </commands>
+        <levelup>
+          <event id="event_driver_became_medium_truck_driver"/>
+        </levelup>
+        <requirements>
+          <item id="item_classb_driving_license" operation="exist" />
+        </requirements>
+      </level>
+      <level name="medium_truck_driver" experience="7500">
+        <commands>
+          <player type="change" state="energy" value="-140" />
+          <player type="change" state="mood" value="-180" />
+          <player type="change" state="hunger" value="-100" />
+          <player type="change" state="money" value="680" />
+        </commands>
+        <levelup>
+          <event id="event_driver_became_heavy_truck_driver"/>
+        </levelup>
+        <requirements>
+          <item id="item_classa_driving_license" operation="exist" />
+        </requirements>
+      </level>
+      <level name="heavy_truck_driver" experience="17000">
+        <commands>
+          <player type="change" state="energy" value="1 - player.max_energy / 20" />
+          <player type="change" state="mood" value="-120 - player.max_mood / 30" />
+          <player type="change" state="hunger" value="-150 - player.max_hunger / 45" />
+          <player type="change" state="money" value="1425" />
+        </commands>
+        <levelup>
+          <event id="event_driver_logistics_expert"/>
+        </levelup>
+        <requirements>
+          <requirement exp="event.event_university_fourth_finished.happened == 1 || item.item_university_diploma.count == 1"/>
+        </requirements>
+      </level>
+      <level name="logistics_expert" experience="45000">
+        <commands>
+          <player type="change" state="energy" value="1 - player.max_energy / 19" />
+          <player type="change" state="mood" value="-120 - player.max_mood / 23" />
+          <player type="change" state="hunger" value="-120 - player.max_hunger / 40" />
+          <player type="change" state="money" value="3500" />
+        </commands>
+      </level>
+    </levels>
+  </job>
+
 </JobsData>
