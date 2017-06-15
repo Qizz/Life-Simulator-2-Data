@@ -155,7 +155,7 @@ GENERAL
   <action id="take_loan" category="general">
     <requirements>
       <requirement exp="player.money less 26"/>
-      <requirement exp="player.day greater 100"/>
+      <item id="credit_card" operation="exist" />
       <item id="item_apartment" operation="unexist" />
     </requirements>
     <commands>
