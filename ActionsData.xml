@@ -154,7 +154,7 @@ GENERAL
 
   <action id="take_loan" category="general">
     <requirements>
-      <requirement exp="player.money less 26"/>
+      <requirement exp="player.money less 100"/>
       <requirement exp="player.day greater 100"/>
       <item id="item_apartment" operation="unexist" />
     </requirements>
@@ -567,18 +567,16 @@ JOB
 
   <!-- DELIVERY COMPANY-->
   
-  <!-- TODO ADD: <requirement exp="job.job_driver.level gequal 5" />-->
-  
-  <action id="buy_delivery_company" category="job">
+  <!--<action id="buy_delivery_company" category="job">
     <requirements>
       <item id="business_delivery_company" operation="unexist" />
-      
+      <requirement exp="job.job_driver.level gequal 5" />
     </requirements>
     <commands>
       <player type="change" state="money" value="-900000" />
       <item type="add" id="business_delivery_company" />
     </commands>
-  </action>
+  </action>-->
 
   <action id="upgrade_delivery_company" category="job">
     <requirements>
@@ -603,6 +601,26 @@ JOB
     </commands>
   </action>
 
+
+
+  <action id="hire_manager" category="job">
+    <requirements>
+      <requirement exp="item.business_restaurant.count gequal 1 || item.business_gamedev_studio.count gequal 1 || item.business_security_company.count gequal 1 || item.business_delivery_company.count gequal 1"/>
+      <item id="item_manager" operation="unexist" />
+    </requirements>
+    <commands>
+      <item type="add" id="item_manager" />
+    </commands>
+  </action>
+
+  <action id="fire_manager" category="job">
+    <requirements>
+      <item id="item_manager" operation="exist" />
+    </requirements>
+    <commands>
+      <item type="remove" id="item_manager" />
+    </commands>
+  </action>
     <!--
 basic idea how to get a new driver was have an event to be able hire new worker, that option/action will last for 100 days (impact data)
 and during that time you are able to hire 1 worker. Payment for action hire_delivery_company_driver is for buying truck  for him.  
@@ -916,7 +934,7 @@ STORE
   
   
   <!--HOUSE-->
-  <action id="buy_item_house" category="store">
+  <!--<action id="buy_item_house" category="store">
     <requirements>
       <item id="item_house" operation="unexist" />
     </requirements>
@@ -924,7 +942,7 @@ STORE
       <player type="change" state="money" value="-155000" />
       <item id="item_house" type="add"/>
     </commands>
-  </action>
+  </action>-->
   
   <action id="upgrade_item_house" category="store">
     <requirements>
@@ -1091,7 +1109,6 @@ STORE
   <action id="buy_item_garden" category="store">
     <requirements>
       <item id="item_house" operation="exist" />
-      <item id="item_house" operation="exist" />
       <item id="item_garden" operation="unexist" />
     </requirements>
     <commands>
@@ -1142,7 +1159,7 @@ STORE
 
   <!--PARKING SPACE-->
 
-  <action id="buy_item_parking_space" category="store">
+  <!--<action id="buy_item_parking_space" category="store">
     <requirements>
       <item id="item_apartment" operation="exist" />
       <item id="item_parking_space" operation="unexist" />
@@ -1151,7 +1168,7 @@ STORE
       <player type="change" state="money" value="-1500" />
       <item type="add" id="item_parking_space" />
     </commands>
-  </action>
+  </action>-->
 
 
   <!--CAR-->
@@ -1325,10 +1342,5 @@ DEBUG
       <impact id="cruel_disease" type="add"/>
     </commands>
   </action>
-
-  
-
-
-
 
 </ActionsData>

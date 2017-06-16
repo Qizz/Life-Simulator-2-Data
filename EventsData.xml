@@ -264,8 +264,7 @@
       <item id="item_parking_space" operation="exist"/>
     </requirements>
   </event>
-
-
+  
   <event id="event_start_chauffeur_dlc" visible="true" max_count="1" random="true" great="true">
     <requirements>
       <item id="item_standard_driving_license" operation="exist" />

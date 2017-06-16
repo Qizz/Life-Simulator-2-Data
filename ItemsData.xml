@@ -508,90 +508,115 @@
     минимальная зарплата для того чтобы приходили работники  
   -->
 
+
   <item id="business_restaurant" visible="true" max_count="1" category="job">
     <states>
       <state name="sell_price" value="750000" />
-      
+
       <state name="restaurant_visitors" value="0" visible="true" />
-      <state name="restaurant_visitors_max" value="50"/>
-      
+      <state name="restaurant_visitors_max" value="50" />
+
       <state name="restaurant_workers" value="0" visible="true" />
       <state name="restaurant_workers_max" value="30" />
-      
+
       <state name="restaurant_workers_salary" value="1" visible="true" />
-      <state name="restaurant_min_workers_salary" value="0"/>
+      <state name="restaurant_min_workers_salary" value="0" />
       <state name="restaurant_max_workers_salary" value="0" visible="true" />
     </states>
-    
+
     <levels>
-      
+
       <level name="restaurant_fastfood">
         <receive>
-          <item id="business_restaurant" type="set" state="sell_price" value="750000" visible="false"/>
-          <item id="business_restaurant" type="set" state="restaurant_min_workers_salary" value="15" visible="false"/>
-          <item id="business_restaurant" type="set" state="restaurant_max_workers_salary" value="20" visible="false"/>
-          <item id="business_restaurant" type="set" state="restaurant_workers_max" value="30" visible="false"/>
+          <item id="business_restaurant" type="set" state="sell_price" value="750000" visible="false" />
+          <item id="business_restaurant" type="set" state="restaurant_min_workers_salary" value="15" visible="false" />
+          <item id="business_restaurant" type="set" state="restaurant_max_workers_salary" value="20" visible="false" />
+          <item id="business_restaurant" type="set" state="restaurant_workers_max" value="30" visible="false" />
         </receive>
         <commands>
-          <player type="change" state="energy" value="-55 - item.business_restaurant.restaurant_workers * player.max_energy / 1200" />
-          <player type="change" state="mood" value="-50 - item.business_restaurant.restaurant_workers * player.max_mood / 1000" />
-          <player type="change" state="hunger" value="-20 - item.business_restaurant.restaurant_workers * player.max_hunger / 1600" />
-          <item type="set" id="business_restaurant" state="restaurant_visitors_max" value="20 + item.business_restaurant.restaurant_workers * 3" />
-          <item type="set" id="business_restaurant" state="restaurant_visitors" value="Rand(0, item.business_restaurant.restaurant_visitors_max)" />
-          <player type="change" state="money" value="item.business_restaurant.restaurant_visitors * 50 * if(job.job_cook.level == 6, 1.25, 1) - item.business_restaurant.restaurant_workers * item.business_restaurant.restaurant_workers_salary" />
+          <player type="change" state="energy"
+                  value="(-55 - item.business_restaurant.restaurant_workers * player.max_energy / 1200) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood"
+                  value="(-50 - item.business_restaurant.restaurant_workers * player.max_mood / 1000) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger"
+                  value="(-20 - item.business_restaurant.restaurant_workers * player.max_hunger / 1600) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <item type="set" id="business_restaurant" state="restaurant_visitors_max"
+                value="20 + item.business_restaurant.restaurant_workers * 3" />
+          <item type="set" id="business_restaurant" state="restaurant_visitors"
+                value="Rand(0, item.business_restaurant.restaurant_visitors_max)" />
+          <player type="change" state="money"
+                  value="item.business_restaurant.restaurant_visitors * 50 * if(job.job_cook.level == 6, 1.25, 1) * if(item.item_manager.count gequal 1, 0.6, 1) - item.business_restaurant.restaurant_workers * item.business_restaurant.restaurant_workers_salary" />
         </commands>
       </level>
-      
+
       <level name="small_pizzeria">
         <receive>
-          <item id="business_restaurant" type="set" state="sell_price" value="3000000" visible="false"/>
-          <item id="business_restaurant" type="set" state="restaurant_min_workers_salary" value="40" visible="false"/>
-          <item id="business_restaurant" type="set" state="restaurant_max_workers_salary" value="45" visible="false"/>
-          <item id="business_restaurant" type="set" state="restaurant_workers_max" value="100" visible="false"/>
+          <item id="business_restaurant" type="set" state="sell_price" value="3000000" visible="false" />
+          <item id="business_restaurant" type="set" state="restaurant_min_workers_salary" value="40" visible="false" />
+          <item id="business_restaurant" type="set" state="restaurant_max_workers_salary" value="45" visible="false" />
+          <item id="business_restaurant" type="set" state="restaurant_workers_max" value="100" visible="false" />
         </receive>
         <commands>
-          <player type="change" state="energy" value="-55 - item.business_restaurant.restaurant_workers * player.max_energy / 1500" />
-          <player type="change" state="mood" value="-50 - item.business_restaurant.restaurant_workers * player.max_mood / 1200" />
-          <player type="change" state="hunger" value="-20 - item.business_restaurant.restaurant_workers * player.max_hunger / 1800" />
-          <item type="set" id="business_restaurant" state="restaurant_visitors_max" value="30 + item.business_restaurant.restaurant_workers * 4" />
-          <item type="set" id="business_restaurant" state="restaurant_visitors" value="Rand(0, item.business_restaurant.restaurant_visitors_max)" />
-          <player type="change" state="money" value="item.business_restaurant.restaurant_visitors * 50 * if(job.job_cook.level == 6, 1.25, 1) - item.business_restaurant.restaurant_workers * item.business_restaurant.restaurant_workers_salary" />
+          <player type="change" state="energy"
+                  value="(-55 - item.business_restaurant.restaurant_workers * player.max_energy / 1500) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood"
+                  value="(-50 - item.business_restaurant.restaurant_workers * player.max_mood / 1200) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger"
+                  value="(-20 - item.business_restaurant.restaurant_workers * player.max_hunger / 1800) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <item type="set" id="business_restaurant" state="restaurant_visitors_max"
+                value="30 + item.business_restaurant.restaurant_workers * 4" />
+          <item type="set" id="business_restaurant" state="restaurant_visitors"
+                value="Rand(0, item.business_restaurant.restaurant_visitors_max)" />
+          <player type="change" state="money"
+                  value="item.business_restaurant.restaurant_visitors * 50 * if(job.job_cook.level == 6, 1.25, 1) * if(item.item_manager.count gequal 1, 0.6, 1) - item.business_restaurant.restaurant_workers * item.business_restaurant.restaurant_workers_salary" />
         </commands>
       </level>
-      
+
       <level name="best_restaurant_in_city">
         <receive>
-          <item id="business_restaurant" type="set" state="sell_price" value="4000000" visible="false"/>
-          <item id="business_restaurant" type="set" state="restaurant_min_workers_salary" value="60" visible="false"/>
-          <item id="business_restaurant" type="set" state="restaurant_max_workers_salary" value="65" visible="false"/>
-          <item id="business_restaurant" type="set" state="restaurant_workers_max" value="300" visible="false"/>
+          <item id="business_restaurant" type="set" state="sell_price" value="4000000" visible="false" />
+          <item id="business_restaurant" type="set" state="restaurant_min_workers_salary" value="60" visible="false" />
+          <item id="business_restaurant" type="set" state="restaurant_max_workers_salary" value="65" visible="false" />
+          <item id="business_restaurant" type="set" state="restaurant_workers_max" value="300" visible="false" />
         </receive>
         <commands>
-          <player type="change" state="energy" value="-55 - item.business_restaurant.restaurant_workers * player.max_energy / 2900" />
-          <player type="change" state="mood" value="-50 - item.business_restaurant.restaurant_workers * player.max_mood / 2600" />
-          <player type="change" state="hunger" value="-20 - item.business_restaurant.restaurant_workers * player.max_hunger / 3100" />
-          <item type="set" id="business_restaurant" state="restaurant_visitors_max" value="30 + item.business_restaurant.restaurant_workers * 5" />
-          <item type="set" id="business_restaurant" state="restaurant_visitors" value="Rand(0, item.business_restaurant.restaurant_visitors_max)" />
-          <player type="change" state="money" value="item.business_restaurant.restaurant_visitors * 50 * if(job.job_cook.level == 6, 1.25, 1) - item.business_restaurant.restaurant_workers * item.business_restaurant.restaurant_workers_salary" />
+          <player type="change" state="energy"
+                  value="(-55 - item.business_restaurant.restaurant_workers * player.max_energy / 2900) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood"
+                  value="(-50 - item.business_restaurant.restaurant_workers * player.max_mood / 2600) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger"
+                  value="(-20 - item.business_restaurant.restaurant_workers * player.max_hunger / 3100) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <item type="set" id="business_restaurant" state="restaurant_visitors_max"
+                value="30 + item.business_restaurant.restaurant_workers * 5" />
+          <item type="set" id="business_restaurant" state="restaurant_visitors"
+                value="Rand(0, item.business_restaurant.restaurant_visitors_max)" />
+          <player type="change" state="money"
+                  value="item.business_restaurant.restaurant_visitors * 50 * if(job.job_cook.level == 6, 1.25, 1) * if(item.item_manager.count gequal 1, 0.6, 1) - item.business_restaurant.restaurant_workers * item.business_restaurant.restaurant_workers_salary" />
         </commands>
       </level>
       <level name="restaurant_chain">
         <receive>
-          <item id="business_restaurant" type="set" state="sell_price" value="10000000" visible="false"/>
-          <item id="business_restaurant" type="set" state="restaurant_min_workers_salary" value="80" visible="false"/>
-          <item id="business_restaurant" type="set" state="restaurant_max_workers_salary" value="85" visible="false"/>
-          <item id="business_restaurant" type="set" state="restaurant_workers_max" value="500" visible="false"/>
+          <item id="business_restaurant" type="set" state="sell_price" value="10000000" visible="false" />
+          <item id="business_restaurant" type="set" state="restaurant_min_workers_salary" value="80" visible="false" />
+          <item id="business_restaurant" type="set" state="restaurant_max_workers_salary" value="85" visible="false" />
+          <item id="business_restaurant" type="set" state="restaurant_workers_max" value="500" visible="false" />
         </receive>
         <commands>
-          <player type="change" state="energy" value="-55 - item.business_restaurant.restaurant_workers * player.max_energy / 3100" />
-          <player type="change" state="mood" value="-50 - item.business_restaurant.restaurant_workers * player.max_mood / 3000" />
-          <player type="change" state="hunger" value="-20 - item.business_restaurant.restaurant_workers * player.max_hunger / 3800" />
-          <item type="set" id="business_restaurant" state="restaurant_visitors_max" value="100 + item.business_restaurant.restaurant_workers * 6" />
-          <item type="set" id="business_restaurant" state="restaurant_visitors" value="Rand(0, item.business_restaurant.restaurant_visitors_max)" />
-          <player type="change" state="money" value="item.business_restaurant.restaurant_visitors * 50 * if(job.job_cook.level == 6, 1.25, 1) - item.business_restaurant.restaurant_workers * item.business_restaurant.restaurant_workers_salary" />
+          <player type="change" state="energy"
+                  value="(-55 - item.business_restaurant.restaurant_workers * player.max_energy / 3100) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood"
+                  value="(-50 - item.business_restaurant.restaurant_workers * player.max_mood / 3000) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger"
+                  value="(-20 - item.business_restaurant.restaurant_workers * player.max_hunger / 3800) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <item type="set" id="business_restaurant" state="restaurant_visitors_max"
+                value="100 + item.business_restaurant.restaurant_workers * 6" />
+          <item type="set" id="business_restaurant" state="restaurant_visitors"
+                value="Rand(0, item.business_restaurant.restaurant_visitors_max)" />
+          <player type="change" state="money"
+                  value="item.business_restaurant.restaurant_visitors * 50 * if(job.job_cook.level == 6, 1.25, 1) * if(item.item_manager.count gequal 1, 0.6, 1) - item.business_restaurant.restaurant_workers * item.business_restaurant.restaurant_workers_salary" />
         </commands>
       </level>
-      
+
     </levels>
   </item>
 
@@ -607,13 +632,13 @@
 
       <state name="workers" value="0" visible="true" />
       <state name="workers_max" value="10" />
-      
+
       <state name="workers_salary" value="1" visible="true" />
       <state name="min_workers_salary" value="0"/>
       <state name="max_workers_salary" value="0" visible="true" />
     </states>
     <levels>
-      
+
       <level name="game_devstudio_small_team">
         <receive>
           <item id="business_gamedev_studio" type="set" state="sell_price" value="350000" visible="false"/>
@@ -623,15 +648,15 @@
         </receive>
 
         <commands>
-          <player type="change" state="energy" value="-55 - item.business_gamedev_studio.workers * player.max_energy / 1750" />
-          <player type="change" state="mood" value="-50 - item.business_gamedev_studio.workers * player.max_mood / 1600" />
-          <player type="change" state="hunger" value="-20 - item.business_gamedev_studio.workers* player.max_hunger / 2300" />
+          <player type="change" state="energy" value="(-55 - item.business_gamedev_studio.workers * player.max_energy / 1750) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood" value="(-50 - item.business_gamedev_studio.workers * player.max_mood / 1600) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger" value="(-20 - item.business_gamedev_studio.workers* player.max_hunger / 2300) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <player type="change" state="money" value="-item.business_gamedev_studio.workers * item.business_gamedev_studio.workers_salary"/>
           <item id="item_gamedev_studio_game" type="add" requirement="false" visible="false"/>
-          <item type="change" id="item_gamedev_studio_game" state="experience" value="4 * item.business_gamedev_studio.workers * if(job.job_programmer.level == 7, 1.3, 1)" requirement="false"/>
+          <item type="change" id="item_gamedev_studio_game" state="experience" value="4 * item.business_gamedev_studio.workers * if(job.job_programmer.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1)" requirement="false"/>
         </commands>
       </level>
-      
+
       <level name="game_devstudio_large_team">
         <receive>
           <item id="business_gamedev_studio" type="set" state="sell_price" value="2500000" visible="false"/>
@@ -640,15 +665,15 @@
           <item id="business_gamedev_studio" type="set" state="workers_max" value="50" visible="false"/>
         </receive>
         <commands>
-          <player type="change" state="energy" value="-55 - item.business_gamedev_studio.workers * player.max_energy / 1950" />
-          <player type="change" state="mood" value="-50 - item.business_gamedev_studio.workers * player.max_mood / 1850" />
-          <player type="change" state="hunger" value="-20 - item.business_gamedev_studio.workers* player.max_hunger / 2350" />
+          <player type="change" state="energy" value="(-55 - item.business_gamedev_studio.workers * player.max_energy / 1950) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood" value="(-50 - item.business_gamedev_studio.workers * player.max_mood / 1850) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger" value="(-20 - item.business_gamedev_studio.workers* player.max_hunger / 2350) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <player type="change" state="money" value="-item.business_gamedev_studio.workers * item.business_gamedev_studio.workers_salary"/>
           <item id="item_gamedev_studio_game" type="add" requirement="false" visible="false"/>
-          <item type="change" id="item_gamedev_studio_game" state="experience" value="5 * item.business_gamedev_studio.workers * if(job.job_programmer.level == 7, 1.3, 1)" requirement="false"/>
+          <item type="change" id="item_gamedev_studio_game" state="experience" value="5 * item.business_gamedev_studio.workers * if(job.job_programmer.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1)" requirement="false"/>
         </commands>
       </level>
-      
+
       <level name="game_devstudio_company">
         <receive>
           <item id="business_gamedev_studio" type="set" state="sell_price" value="4000000" visible="false"/>
@@ -657,15 +682,15 @@
           <item id="business_gamedev_studio" type="set" state="workers_max" value="250" visible="false"/>
         </receive>
         <commands>
-          <player type="change" state="energy" value="-55 - item.business_gamedev_studio.workers * player.max_energy / 3000" />
-          <player type="change" state="mood" value="-50 - item.business_gamedev_studio.workers * player.max_mood / 2500" />
-          <player type="change" state="hunger" value="-20 - item.business_gamedev_studio.workers* player.max_hunger / 2800" />
+          <player type="change" state="energy" value="(-55 - item.business_gamedev_studio.workers * player.max_energy / 3000) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood" value="(-50 - item.business_gamedev_studio.workers * player.max_mood / 2500) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger" value="(-20 - item.business_gamedev_studio.workers* player.max_hunger / 2800) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <player type="change" state="money" value="-item.business_gamedev_studio.workers * item.business_gamedev_studio.workers_salary"/>
           <item id="item_gamedev_studio_game" type="add" requirement="false" visible="false"/>
-          <item type="change" id="item_gamedev_studio_game" state="experience" value="6 * item.business_gamedev_studio.workers * if(job.job_programmer.level == 7, 1.3, 1)" requirement="false"/>
+          <item type="change" id="item_gamedev_studio_game" state="experience" value="6 * item.business_gamedev_studio.workers * if(job.job_programmer.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1)" requirement="false"/>
         </commands>
       </level>
-      
+
       <level name="game_devstudio_worldwide_company">
         <receive>
           <item id="business_gamedev_studio" type="set" state="sell_price" value="9000000" visible="false"/>
@@ -674,15 +699,14 @@
           <item id="business_gamedev_studio" type="set" state="workers_max" value="750" visible="false"/>
         </receive>
         <commands>
-          <player type="change" state="energy" value="-55 - item.business_gamedev_studio.workers * player.max_energy / 5600" />
-          <player type="change" state="mood" value="-50 - item.business_gamedev_studio.workers * player.max_mood / 5200" />
-          <player type="change" state="hunger" value="-20 - item.business_gamedev_studio.workers* player.max_hunger / 5650" />
+          <player type="change" state="energy" value="(-55 - item.business_gamedev_studio.workers * player.max_energy / 5600) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood" value="(-50 - item.business_gamedev_studio.workers * player.max_mood / 5200) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger" value="(-20 - item.business_gamedev_studio.workers* player.max_hunger / 5650) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <player type="change" state="money" value="-item.business_gamedev_studio.workers * item.business_gamedev_studio.workers_salary"/>
           <item id="item_gamedev_studio_game" type="add" requirement="false" visible="false"/>
-          <item type="change" id="item_gamedev_studio_game" state="experience" value="7 * item.business_gamedev_studio.workers * if(job.job_programmer.level == 7, 1.3, 1)" requirement="false"/>
+          <item type="change" id="item_gamedev_studio_game" state="experience" value="7 * item.business_gamedev_studio.workers * if(job.job_programmer.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1)" requirement="false"/>
         </commands>
       </level>
-    
     </levels>
   </item>
 
@@ -721,12 +745,12 @@
         </receive>
 
         <commands>
-          <player type="change" state="energy" value="-65 - item.business_security_company.business_security_company_guards * player.max_energy / 1100" />
-          <player type="change" state="mood" value="-55 - item.business_security_company.business_security_company_guards * player.max_mood / 1200" />
-          <player type="change" state="hunger" value="-15 - item.business_security_company.business_security_company_guards * player.max_hunger / 1350" />
+          <player type="change" state="energy" value="(-65 - item.business_security_company.business_security_company_guards * player.max_energy / 1100) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood" value="(-55 - item.business_security_company.business_security_company_guards * player.max_mood / 1200) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger" value="(-15 - item.business_security_company.business_security_company_guards * player.max_hunger / 1350) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <item type="set" id="business_security_company" state="business_security_company_prevented_crimes_today" value="1 + Rand(0, item.business_security_company.business_security_company_guards) / 8" />
           <item type="change" id="business_security_company" state="business_security_company_prevented_crimes_total" value="item.business_security_company.business_security_company_prevented_crimes_today" visible="false"/>
-          <player type="change" state="money" value="item.business_security_company.business_security_company_prevented_crimes_today * 550 * if(job.job_police.level == 7, 1.3, 1) - item.business_security_company.business_security_company_guards * item.business_security_company.business_security_company_guards_salary" />
+          <player type="change" state="money" value="item.business_security_company.business_security_company_prevented_crimes_today * 550 * if(job.job_police.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1) - item.business_security_company.business_security_company_guards * item.business_security_company.business_security_company_guards_salary" />
         </commands>
       </level>
 
@@ -738,12 +762,12 @@
         </receive>
 
         <commands>
-          <player type="change" state="energy" value="-110 - item.business_security_company.business_security_company_guards * player.max_energy / 2300" />
-          <player type="change" state="mood" value="-80 - item.business_security_company.business_security_company_guards * player.max_mood / 2500" />
-          <player type="change" state="hunger" value="-90 - item.business_security_company.business_security_company_guards * player.max_hunger / 2200" />
+          <player type="change" state="energy" value="(-110 - item.business_security_company.business_security_company_guards * player.max_energy / 2300) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood" value="(-80 - item.business_security_company.business_security_company_guards * player.max_mood / 2500) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger" value="(-90 - item.business_security_company.business_security_company_guards * player.max_hunger / 2200) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <item type="set" id="business_security_company" state="business_security_company_prevented_crimes_today" value="1 + Rand(0, item.business_security_company.business_security_company_guards) / 7" />
           <item type="change" id="business_security_company" state="business_security_company_prevented_crimes_total" value="item.business_security_company.business_security_company_prevented_crimes_today" visible="false"/>
-          <player type="change" state="money" value="item.business_security_company.business_security_company_prevented_crimes_today * 770 * if(job.job_police.level == 7, 1.3, 1) - item.business_security_company.business_security_company_guards  * item.business_security_company.business_security_company_guards_salary" />
+          <player type="change" state="money" value="item.business_security_company.business_security_company_prevented_crimes_today * 770 * if(job.job_police.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1) - item.business_security_company.business_security_company_guards  * item.business_security_company.business_security_company_guards_salary" />
         </commands>
       </level>
 
@@ -756,12 +780,12 @@
         </receive>
 
         <commands>
-          <player type="change" state="energy" value="-110 - item.business_security_company.business_security_company_guards * player.max_energy / 5600" />
-          <player type="change" state="mood" value="-80 - item.business_security_company.business_security_company_guards * player.max_mood / 5200" />
-          <player type="change" state="hunger" value="-90 - item.business_security_company.business_security_company_guards * player.max_hunger / 5550" />
+          <player type="change" state="energy" value="(-110 - item.business_security_company.business_security_company_guards * player.max_energy / 5600) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood" value="(-80 - item.business_security_company.business_security_company_guards * player.max_mood / 5200) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger" value="(-90 - item.business_security_company.business_security_company_guards * player.max_hunger / 5550) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <item type="set" id="business_security_company" state="business_security_company_prevented_crimes_today" value="1 + Rand(0, item.business_security_company.business_security_company_guards) / 6" />
           <item type="change" id="business_security_company" state="business_security_company_prevented_crimes_total" value="item.business_security_company.business_security_company_prevented_crimes_today" visible="false"/>
-          <player type="change" state="money" value="item.business_security_company.business_security_company_prevented_crimes_today * 850 * if(job.job_police.level == 7, 1.3, 1) - item.business_security_company.business_security_company_guards  * item.business_security_company.business_security_company_guards_salary" />
+          <player type="change" state="money" value="item.business_security_company.business_security_company_prevented_crimes_today * 850 * if(job.job_police.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1) - item.business_security_company.business_security_company_guards  * item.business_security_company.business_security_company_guards_salary" />
         </commands>
       </level>
 
@@ -774,18 +798,105 @@
         </receive>
 
         <commands>
-          <player type="change" state="energy" value="-110 - item.business_security_company.business_security_company_guards * player.max_energy / 8500" />
-          <player type="change" state="mood" value="-80 - item.business_security_company.business_security_company_guards * player.max_mood / 8100" />
-          <player type="change" state="hunger" value="-90 - item.business_security_company.business_security_company_guards * player.max_hunger / 8200" />
+          <player type="change" state="energy" value="(-110 - item.business_security_company.business_security_company_guards * player.max_energy / 8500) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood" value="(-80 - item.business_security_company.business_security_company_guards * player.max_mood / 8100) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger" value="(-90 - item.business_security_company.business_security_company_guards * player.max_hunger / 8200) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <item type="set" id="business_security_company" state="business_security_company_prevented_crimes_today" value="1 + Rand(0, item.business_security_company.business_security_company_guards) / 5" />
           <item type="change" id="business_security_company" state="business_security_company_prevented_crimes_total" value="item.business_security_company.business_security_company_prevented_crimes_today" visible="false"/>
-          <player type="change" state="money" value="item.business_security_company.business_security_company_prevented_crimes_today * 980 * if(job.job_police.level == 7, 1.3, 1) - item.business_security_company.business_security_company_guards  * item.business_security_company.business_security_company_guards_salary" />
+          <player type="change" state="money" value="item.business_security_company.business_security_company_prevented_crimes_today * 980 * if(job.job_police.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1) - item.business_security_company.business_security_company_guards  * item.business_security_company.business_security_company_guards_salary" />
         </commands>
       </level>
-
     </levels>
   </item>
 
+
+
+  <!-- delivery company-->
+
+  <item id="business_delivery_company" visible="true" max_count="1" category="job">
+    <states>
+      <state name="sell_price" value="350000" />
+
+      <state name="cargo_deliveries" value="0" visible="true" />
+      <state name="cargo_deliveries_max" value="0"/>
+
+      <state name="delivery_company_drivers" value="0" visible="true" />
+      <state name="delivery_company_drivers_max" value="10" />
+
+      <state name="delivery_company_drivers_salary" value="1" visible="true" />
+    </states>
+
+    <levels>
+      <level name="small_local_delivery_company">
+        <receive>
+          <item id="business_delivery_company" type="set" state="sell_price" value="350000" visible="false"/>
+          <item id="business_delivery_company" type="set" state="delivery_company_drivers_salary" value="30" visible="false"/>
+          <item id="business_delivery_company" type="set" state="delivery_company_drivers_max" value="10" visible="false"/>
+        </receive>
+        <commands>
+          <player type="change" state="energy" value="(-55 - item.business_delivery_company.delivery_company_drivers * player.max_energy / 675) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood" value="(-50 - item.business_delivery_company.delivery_company_drivers * player.max_mood / 625) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger" value="(-20 - item.business_delivery_company.delivery_company_drivers * player.max_hunger / 750) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <item type="set" id="business_delivery_company" state="cargo_deliveries_max" value="item.business_delivery_company.delivery_company_drivers * 4" />
+          <item type="set" id="business_delivery_company" state="cargo_deliveries" value="Rand(0, item.business_delivery_company.cargo_deliveries_max)" />
+          <player type="change" state="money" value="item.business_delivery_company.cargo_deliveries * 230 * if(job.job_driver.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1) - item.business_delivery_company.delivery_company_drivers * item.business_delivery_company.delivery_company_drivers_salary" />
+        </commands>
+      </level>
+
+      <level name="big_local_delivery_company">
+        <receive>
+          <item id="business_delivery_company" type="set" state="sell_price" value="1500000" visible="false"/>
+          <item id="business_delivery_company" type="set" state="delivery_company_drivers_salary" value="50" visible="false"/>
+          <item id="business_delivery_company" type="set" state="delivery_company_drivers_max" value="25" visible="false"/>
+        </receive>
+        <commands>
+          <player type="change" state="energy" value="(-55 - item.business_delivery_company.delivery_company_drivers * player.max_energy / 675) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood" value="(-50 - item.business_delivery_company.delivery_company_drivers * player.max_mood / 625) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger" value="(-20 - item.business_delivery_company.delivery_company_drivers * player.max_hunger / 750) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <item type="set" id="business_delivery_company" state="cargo_deliveries_max" value="item.business_delivery_company.delivery_company_drivers * 3" />
+          <item type="set" id="business_delivery_company" state="cargo_deliveries" value="Rand(0, item.business_delivery_company.cargo_deliveries_max)" />
+          <player type="change" state="money" value="item.business_delivery_company.cargo_deliveries * 350 * if(job.job_driver.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1) - item.business_delivery_company.delivery_company_drivers * item.business_delivery_company.delivery_company_drivers_salary" />
+        </commands>
+      </level>
+
+      <level name="interstate_delivery_company">
+        <receive>
+          <item id="business_delivery_company" type="set" state="sell_price" value="3250000" visible="false"/>
+          <item id="business_delivery_company" type="set" state="delivery_company_drivers_salary" value="75" visible="false"/>
+          <item id="business_delivery_company" type="set" state="delivery_company_drivers_max" value="50" visible="false"/>
+        </receive>
+        <commands>
+          <player type="change" state="energy" value="(-55 - item.business_delivery_company.delivery_company_drivers * player.max_energy / 675) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood" value="(-50 - item.business_delivery_company.delivery_company_drivers * player.max_mood / 625) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger" value="(-20 - item.business_delivery_company.delivery_company_drivers * player.max_hunger / 750) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <item type="set" id="business_delivery_company" state="cargo_deliveries_max" value="item.business_delivery_company.delivery_company_drivers * 2" />
+          <item type="set" id="business_delivery_company" state="cargo_deliveries" value="Rand(0, item.business_delivery_company.cargo_deliveries_max)" />
+          <player type="change" state="money" value="item.business_delivery_company.cargo_deliveries * 580 * if(job.job_driver.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1) - item.business_delivery_company.delivery_company_drivers * item.business_delivery_company.delivery_company_drivers_salary" />
+        </commands>
+      </level>
+      <level name="international_delivery_company">
+        <receive>
+          <item id="business_delivery_company" type="set" state="sell_price" value="8500000" visible="false"/>
+          <item id="business_delivery_company" type="set" state="delivery_company_drivers_salary" value="90" visible="false"/>
+          <item id="business_delivery_company" type="set" state="delivery_company_drivers_max" value="100" visible="false"/>
+        </receive>
+        <commands>
+          <player type="change" state="energy" value="(-55 - item.business_delivery_company.delivery_company_drivers * player.max_energy / 675) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="mood" value="(-50 - item.business_delivery_company.delivery_company_drivers * player.max_mood / 625) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="hunger" value="(-20 - item.business_delivery_company.delivery_company_drivers * player.max_hunger / 750) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <item type="set" id="business_delivery_company" state="cargo_deliveries_max" value="item.business_delivery_company.delivery_company_drivers" />
+          <item type="set" id="business_delivery_company" state="cargo_deliveries" value="Rand(0, item.business_delivery_company.cargo_deliveries_max)" />
+          <player type="change" state="money" value="item.business_delivery_company.cargo_deliveries * 1325 * if(job.job_driver.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1) - item.business_delivery_company.delivery_company_drivers * item.business_delivery_company.delivery_company_drivers_salary" />
+        </commands>
+      </level>
+    </levels>
+  </item>
+
+  <item id="item_manager" max_count="1" category="job">
+    <commands>
+      <player type="change" state="money" value="-3000" />
+    </commands>
+  </item>
 
   <!--GARDEN-->
 
@@ -1136,86 +1247,5 @@
   </item>
 
 
-  <!-- delivery company-->
 
-  <item id="business_delivery_company" visible="true" max_count="1" category="job">
-    <states>
-      <state name="sell_price" value="350000" />
-
-      <state name="cargo_deliveries" value="0" visible="true" />
-      <state name="cargo_deliveries_max" value="0" visible="false"/>
-
-      <state name="delivery_company_drivers" value="0" visible="true" />
-      <state name="delivery_company_drivers_max" value="10" visible="false"/>
-
-      <state name="delivery_company_drivers_salary" value="1" visible="true" />
-    </states>
-
-    <levels>
-      <level name="small_local_delivery_company">
-        <receive>
-        <item id="business_delivery_company" type="set" state="sell_price" value="350000"  visible="false"/>
-        <item id="business_delivery_company" type="set" state="delivery_company_drivers_salary" value="30"  visible="false"/>
-        <item id="business_delivery_company" type="set" state="delivery_company_drivers_max" value="10"  visible="false" />
-      </receive>
-      <commands>
-        <player type="change" state="energy" value="-55 - item.business_delivery_company.delivery_company_drivers * player.max_energy / 675" />
-        <player type="change" state="mood" value="-50 - item.business_delivery_company.delivery_company_drivers * player.max_mood / 625" />
-        <player type="change" state="hunger" value="-20 - item.business_delivery_company.delivery_company_drivers * player.max_hunger / 750" />
-        <item type="set" id="business_delivery_company" state="cargo_deliveries_max" value="item.business_delivery_company.delivery_company_drivers * 4" />
-        <item type="set" id="business_delivery_company" state="cargo_deliveries" value="Rand(0, item.business_delivery_company.cargo_deliveries_max)" />
-        <player type="change" state="money" value="item.business_delivery_company.cargo_deliveries * 230 * if(job.job_driver.level == 7, 1.3, 1) - item.business_delivery_company.delivery_company_drivers * item.business_delivery_company.delivery_company_drivers_salary" />
-      </commands>
-      </level>
-
-      <level name="big_local_delivery_company">
-        <receive>
-          <item id="business_delivery_company" type="set" state="sell_price" value="1500000"  visible="false"/>
-          <item id="business_delivery_company" type="set" state="delivery_company_drivers_salary" value="50"  visible="false"/>
-          <item id="business_delivery_company" type="set" state="delivery_company_drivers_max" value="25"  visible="false"/>
-        </receive>
-        <commands>
-          <player type="change" state="energy" value="-55 - item.business_delivery_company.delivery_company_drivers * player.max_energy / 675" />
-          <player type="change" state="mood" value="-50 - item.business_delivery_company.delivery_company_drivers * player.max_mood / 625" />
-          <player type="change" state="hunger" value="-20 - item.business_delivery_company.delivery_company_drivers * player.max_hunger / 750" />
-          <item type="set" id="business_delivery_company" state="cargo_deliveries_max" value="item.business_delivery_company.delivery_company_drivers * 3" />
-          <item type="set" id="business_delivery_company" state="cargo_deliveries" value="Rand(0, item.business_delivery_company.cargo_deliveries_max)" />
-          <player type="change" state="money" value="item.business_delivery_company.cargo_deliveries * 350 * if(job.job_driver.level == 7, 1.3, 1) - item.business_delivery_company.delivery_company_drivers * item.business_delivery_company.delivery_company_drivers_salary" />
-        </commands>
-      </level>
-
-      <level name="interstate_delivery_company">
-        <receive>
-          <item id="business_delivery_company" type="set" state="sell_price" value="3250000"  visible="false"/>
-          <item id="business_delivery_company" type="set" state="delivery_company_drivers_salary" value="75"  visible="false"/>
-          <item id="business_delivery_company" type="set" state="delivery_company_drivers_max" value="50"  visible="false"/>
-        </receive>
-        <commands>
-          <player type="change" state="energy" value="-55 - item.business_delivery_company.delivery_company_drivers * player.max_energy / 675" />
-          <player type="change" state="mood" value="-50 - item.business_delivery_company.delivery_company_drivers * player.max_mood / 625" />
-          <player type="change" state="hunger" value="-20 - item.business_delivery_company.delivery_company_drivers * player.max_hunger / 750" />
-          <item type="set" id="business_delivery_company" state="cargo_deliveries_max" value="item.business_delivery_company.delivery_company_drivers * 2" />
-          <item type="set" id="business_delivery_company" state="cargo_deliveries" value="Rand(0, item.business_delivery_company.cargo_deliveries_max)" />
-          <player type="change" state="money" value="item.business_delivery_company.cargo_deliveries * 580 * if(job.job_driver.level == 7, 1.3, 1) - item.business_delivery_company.delivery_company_drivers * item.business_delivery_company.delivery_company_drivers_salary" />
-        </commands>
-      </level>
-      
-      <level name="international_delivery_company">
-        <receive>
-          <item id="business_delivery_company" type="set" state="sell_price" value="8500000"  visible="false" />
-          <item id="business_delivery_company" type="set" state="delivery_company_drivers_salary" value="90"  visible="false" />
-          <item id="business_delivery_company" type="set" state="delivery_company_drivers_max" value="100"  visible="false" />
-        </receive>
-        <commands>
-          <player type="change" state="energy" value="-55 - item.business_delivery_company.delivery_company_drivers * player.max_energy / 675" />
-          <player type="change" state="mood" value="-50 - item.business_delivery_company.delivery_company_drivers * player.max_mood / 625" />
-          <player type="change" state="hunger" value="-20 - item.business_delivery_company.delivery_company_drivers * player.max_hunger / 750" />
-          <item type="set" id="business_delivery_company" state="cargo_deliveries_max" value="item.business_delivery_company.delivery_company_drivers" />
-          <item type="set" id="business_delivery_company" state="cargo_deliveries" value="Rand(0, item.business_delivery_company.cargo_deliveries_max)" />
-          <player type="change" state="money" value="item.business_delivery_company.cargo_deliveries * 1325 * if(job.job_driver.level == 7, 1.3, 1) - item.business_delivery_company.delivery_company_drivers * item.business_delivery_company.delivery_company_drivers_salary" />
-        </commands>
-      </level>
-    </levels>
-  </item>
-  
 </ItemsData>

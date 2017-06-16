@@ -218,6 +218,20 @@
     </commands>
   </objective>
 
+  <objective id="open_own_delivery_company" visible="true">
+    <open>
+      <requirement exp="job.job_driver.level gequal 5"/>
+    </open>
+    <achieve>
+      <requirement exp="item.business_delivery_company.count gequal 1"/>
+    </achieve>
+    <commands>
+      <player type="change" state="max_energy" value="1000" />
+      <player type="change" state="max_mood" value="1000" />
+      <player type="change" state="max_hunger" value="1000" />
+    </commands>
+  </objective>
+
   <objective id="survive_100_days" visible="true">
     <open>
       <requirement exp="player.day greater 30"/>
@@ -374,5 +388,5 @@
     </commands>
   </objective>
 
-  
+
 </ObjectivesData>
