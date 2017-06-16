@@ -170,7 +170,7 @@ JOB
 ================================================-->
 
 
-  <action id="begin_career_driver" category="job">
+  <!--<action id="begin_career_driver" category="job">
     <requirements>
       <job operation="no_job" />
       <event id="event_university_first_finished" operation="happened"/>
@@ -178,7 +178,7 @@ JOB
     <commands>
       <job id="job_driver" type="add" />
     </commands>
-  </action>
+  </action>-->
 
   <action id="do_driver_job" category="job">
     <requirements>

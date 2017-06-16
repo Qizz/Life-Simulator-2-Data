@@ -651,7 +651,7 @@
           <player type="change" state="energy" value="(-55 - item.business_gamedev_studio.workers * player.max_energy / 1750) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <player type="change" state="mood" value="(-50 - item.business_gamedev_studio.workers * player.max_mood / 1600) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <player type="change" state="hunger" value="(-20 - item.business_gamedev_studio.workers* player.max_hunger / 2300) * if(item.item_manager.count gequal 1, 0.25, 1)" />
-          <player type="change" state="money" value="-item.business_gamedev_studio.workers * item.business_gamedev_studio.workers_salary"/>
+          <player type="change" state="money" value="-item.business_gamedev_studio.workers * item.business_gamedev_studio.workers_salary * if(item.item_manager.count gequal 1, 0.6, 1)"/>
           <item id="item_gamedev_studio_game" type="add" requirement="false" visible="false"/>
           <item type="change" id="item_gamedev_studio_game" state="experience" value="4 * item.business_gamedev_studio.workers * if(job.job_programmer.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1)" requirement="false"/>
         </commands>
@@ -668,7 +668,7 @@
           <player type="change" state="energy" value="(-55 - item.business_gamedev_studio.workers * player.max_energy / 1950) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <player type="change" state="mood" value="(-50 - item.business_gamedev_studio.workers * player.max_mood / 1850) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <player type="change" state="hunger" value="(-20 - item.business_gamedev_studio.workers* player.max_hunger / 2350) * if(item.item_manager.count gequal 1, 0.25, 1)" />
-          <player type="change" state="money" value="-item.business_gamedev_studio.workers * item.business_gamedev_studio.workers_salary"/>
+          <player type="change" state="money" value="-item.business_gamedev_studio.workers * item.business_gamedev_studio.workers_salary * if(item.item_manager.count gequal 1, 0.6, 1)"/>
           <item id="item_gamedev_studio_game" type="add" requirement="false" visible="false"/>
           <item type="change" id="item_gamedev_studio_game" state="experience" value="5 * item.business_gamedev_studio.workers * if(job.job_programmer.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1)" requirement="false"/>
         </commands>
@@ -685,7 +685,7 @@
           <player type="change" state="energy" value="(-55 - item.business_gamedev_studio.workers * player.max_energy / 3000) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <player type="change" state="mood" value="(-50 - item.business_gamedev_studio.workers * player.max_mood / 2500) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <player type="change" state="hunger" value="(-20 - item.business_gamedev_studio.workers* player.max_hunger / 2800) * if(item.item_manager.count gequal 1, 0.25, 1)" />
-          <player type="change" state="money" value="-item.business_gamedev_studio.workers * item.business_gamedev_studio.workers_salary"/>
+          <player type="change" state="money" value="-item.business_gamedev_studio.workers * item.business_gamedev_studio.workers_salary * if(item.item_manager.count gequal 1, 0.6, 1)"/>
           <item id="item_gamedev_studio_game" type="add" requirement="false" visible="false"/>
           <item type="change" id="item_gamedev_studio_game" state="experience" value="6 * item.business_gamedev_studio.workers * if(job.job_programmer.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1)" requirement="false"/>
         </commands>
@@ -702,7 +702,7 @@
           <player type="change" state="energy" value="(-55 - item.business_gamedev_studio.workers * player.max_energy / 5600) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <player type="change" state="mood" value="(-50 - item.business_gamedev_studio.workers * player.max_mood / 5200) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <player type="change" state="hunger" value="(-20 - item.business_gamedev_studio.workers* player.max_hunger / 5650) * if(item.item_manager.count gequal 1, 0.25, 1)" />
-          <player type="change" state="money" value="-item.business_gamedev_studio.workers * item.business_gamedev_studio.workers_salary"/>
+          <player type="change" state="money" value="-item.business_gamedev_studio.workers * item.business_gamedev_studio.workers_salary * if(item.item_manager.count gequal 1, 0.6, 1)s"/>
           <item id="item_gamedev_studio_game" type="add" requirement="false" visible="false"/>
           <item type="change" id="item_gamedev_studio_game" state="experience" value="7 * item.business_gamedev_studio.workers * if(job.job_programmer.level == 7, 1.3, 1) * if(item.item_manager.count gequal 1, 0.6, 1)" requirement="false"/>
         </commands>
