@@ -767,7 +767,7 @@
           <player type="change" state="hunger" value="(-90 - item.business_security_company.business_security_company_guards * player.max_hunger / 2200) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <item type="set" id="business_security_company" state="business_security_company_prevented_crimes_today" value="1 + Rand(0, item.business_security_company.business_security_company_guards) / 7" />
           <item type="change" id="business_security_company" state="business_security_company_prevented_crimes_total" value="item.business_security_company.business_security_company_prevented_crimes_today" visible="false"/>
-          <player type="change" state="money" (value="item.business_security_company.business_security_company_prevented_crimes_today * 770 * if(job.job_police.level == 7, 1.3, 1) - item.business_security_company.business_security_company_guards  * item.business_security_company.business_security_company_guards_salary) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="money" value="(item.business_security_company.business_security_company_prevented_crimes_today * 770 * if(job.job_police.level == 7, 1.3, 1) - item.business_security_company.business_security_company_guards  * item.business_security_company.business_security_company_guards_salary) * if(item.item_manager.count gequal 1, 0.25, 1)" />
         </commands>
       </level>
 
@@ -785,7 +785,7 @@
           <player type="change" state="hunger" value="(-90 - item.business_security_company.business_security_company_guards * player.max_hunger / 5550) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <item type="set" id="business_security_company" state="business_security_company_prevented_crimes_today" value="1 + Rand(0, item.business_security_company.business_security_company_guards) / 6" />
           <item type="change" id="business_security_company" state="business_security_company_prevented_crimes_total" value="item.business_security_company.business_security_company_prevented_crimes_today" visible="false"/>
-          <player type="change" state="money" (value="item.business_security_company.business_security_company_prevented_crimes_today * 850 * if(job.job_police.level == 7, 1.3, 1) - item.business_security_company.business_security_company_guards  * item.business_security_company.business_security_company_guards_salary) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="money" value="(item.business_security_company.business_security_company_prevented_crimes_today * 850 * if(job.job_police.level == 7, 1.3, 1) - item.business_security_company.business_security_company_guards  * item.business_security_company.business_security_company_guards_salary) * if(item.item_manager.count gequal 1, 0.25, 1)" />
         </commands>
       </level>
 
@@ -803,7 +803,7 @@
           <player type="change" state="hunger" value="(-90 - item.business_security_company.business_security_company_guards * player.max_hunger / 8200) * if(item.item_manager.count gequal 1, 0.25, 1)" />
           <item type="set" id="business_security_company" state="business_security_company_prevented_crimes_today" value="1 + Rand(0, item.business_security_company.business_security_company_guards) / 5" />
           <item type="change" id="business_security_company" state="business_security_company_prevented_crimes_total" value="item.business_security_company.business_security_company_prevented_crimes_today" visible="false"/>
-          <player type="change" state="money" (value="item.business_security_company.business_security_company_prevented_crimes_today * 980 * if(job.job_police.level == 7, 1.3, 1) - item.business_security_company.business_security_company_guards  * item.business_security_company.business_security_company_guards_salary) * if(item.item_manager.count gequal 1, 0.25, 1)" />
+          <player type="change" state="money" value="(item.business_security_company.business_security_company_prevented_crimes_today * 980 * if(job.job_police.level == 7, 1.3, 1) - item.business_security_company.business_security_company_guards  * item.business_security_company.business_security_company_guards_salary) * if(item.item_manager.count gequal 1, 0.25, 1)" />
         </commands>
       </level>
     </levels>
