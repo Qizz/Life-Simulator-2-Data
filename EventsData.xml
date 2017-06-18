@@ -259,32 +259,32 @@
   <event id="event_classb_dlc_finished" great="true"></event>
   <event id="event_classa_dlc_finished" great="true"></event>
 
-  <event id="event_start_standard_dlc"  visible="true" max_count="1" random="true" great="true">
+  <event id="event_start_standard_dlc"  visible="true" max_count="1" random="true" >
     <requirements>
       <item id="item_parking_space" operation="exist"/>
     </requirements>
   </event>
   
-  <event id="event_start_chauffeur_dlc" visible="true" max_count="1" random="true" great="true">
+  <event id="event_start_chauffeur_dlc" visible="true" max_count="1" random="true" >
     <requirements>
       <item id="item_standard_driving_license" operation="exist" />
       <requirement exp="job.job_driver.level equal 1" />
     </requirements>
   </event>
 
-  <event id="event_start_classc_dlc" visible="true" max_count="1" random="true" great="true">
+  <event id="event_start_classc_dlc" visible="true" max_count="1" random="true" >
     <requirements>
       <requirement exp="job.job_driver.level equal 3" />
     </requirements>
   </event>
 
-  <event id="event_start_classb_dlc" visible="true" max_count="1" random="true" great="true">
+  <event id="event_start_classb_dlc" visible="true" max_count="1" random="true" >
     <requirements>
       <requirement exp="job.job_driver.level equal 4" />
     </requirements>
   </event>
 
-  <event id="event_start_classa_dlc" visible="true" max_count="1" random="true" great="true">
+  <event id="event_start_classa_dlc" visible="true" max_count="1" random="true" >
     <requirements>
       <requirement exp="job.job_driver.level equal 5" />
     </requirements>
