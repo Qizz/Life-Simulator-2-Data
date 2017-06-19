@@ -269,6 +269,7 @@
     <requirements>
       <item id="item_standard_driving_license" operation="exist" />
       <requirement exp="job.job_driver.level equal 1" />
+      <requirement exp="job.job_driver.count equal 1" />
     </requirements>
   </event>
 
