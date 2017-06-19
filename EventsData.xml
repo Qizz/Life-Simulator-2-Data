@@ -260,8 +260,8 @@
   <event id="event_classa_dlc_finished" great="true"></event>
 
   <event id="event_start_standard_dlc"  visible="true" max_count="1" random="true" >
-    <requirements>
-      <item id="item_parking_space" operation="exist"/>
+    <requirements> 
+      <requirement exp="item.item_parking_space.count gequal 1 || job.job_driver.level equal 1 && job.job_driver.count equal 1" />
     </requirements>
   </event>
   
@@ -269,6 +269,7 @@
     <requirements>
       <item id="item_standard_driving_license" operation="exist" />
       <requirement exp="job.job_driver.level equal 1" />
+      <requirement exp="job.job_driver.level count 1" />
     </requirements>
   </event>
 
