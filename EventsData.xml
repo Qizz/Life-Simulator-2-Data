@@ -254,10 +254,30 @@
   <event id="event_driver_logistics_expert" great="true"></event>
 
   <event id="event_standard_dlc_finished" great="true"></event>
-  <event id="event_chauffeur_dlc_finished" great="true"></event>
-  <event id="event_classc_dlc_finished" great="true"></event>
-  <event id="event_classb_dlc_finished" great="true"></event>
-  <event id="event_classa_dlc_finished" great="true"></event>
+  
+  <event id="event_chauffeur_dlc_finished" great="true">
+    <commands>
+      <item type="remove" id="item_standard_driving_license" />
+    </commands>
+  </event>
+  
+  <event id="event_classc_dlc_finished" great="true">
+    <commands>
+      <item type="remove" id="item_chauffeur_driving_license" />
+    </commands>
+  </event>
+  
+  <event id="event_classb_dlc_finished" great="true">
+    <commands>
+      <item type="remove" id="item_classc_driving_license" />
+    </commands>
+  </event>
+  
+  <event id="event_classa_dlc_finished" great="true">
+    <commands>
+      <item type="remove" id="item_classb_driving_license" />
+    </commands>
+  </event>
 
   <event id="event_start_standard_dlc"  visible="true" max_count="1" random="true" >
     <requirements> 
