@@ -16,7 +16,7 @@
 
   <objective id="get_standard_driving_license" visible="true">
     <open>
-      <item id="item_parking_space" operation="exist" />
+      <requirement exp="item.item_parking_space.count equal 1 || job.job_driver.count equal 1" />
     </open>
     <achieve>
       <item id="item_standard_driving_license" operation="exist" />
