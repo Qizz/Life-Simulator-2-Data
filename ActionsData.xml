@@ -183,6 +183,7 @@ JOB
   <action id="do_driver_job" category="job">
     <requirements>
       <job id="job_driver" operation="exist" />
+      <job id="job_driver" operation="not_maxlevel" />
     </requirements>
     <commands>
       <player type="change" state="energy" value="-2 * job.job_driver.level - player.max_energy / 1000 * job.job_driver.level" />
