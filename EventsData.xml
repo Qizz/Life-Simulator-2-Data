@@ -315,7 +315,8 @@
     <requirements>
       <item id="business_delivery_company" operation="exist" />
       <requirement exp="item.business_delivery_company.delivery_company_drivers less item.business_delivery_company.delivery_company_drivers_max" />
-      <requirement exp="impact.delivery_company_new_driver.duration_left equal 0" />  
+      <requirement exp="impact.delivery_company_new_driver.duration_left equal 0" />
+      <requirement exp="item.business_delivery_company.delivery_company_drivers less item.business_delivery_company.delivery_company_drivers_max"/>
     </requirements>
     <commands>
       <impact id="delivery_company_new_driver" type="add"/>
