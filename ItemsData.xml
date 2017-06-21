@@ -1209,7 +1209,6 @@
   <item id="item_chauffeur_driving_license" visible="true" max_count="1">
     <receive>
       <player undo="true" type="change" state="max_mood" value="125" />
-      <item type="remove" id="item_standard_driving_license"/>
     </receive>
     <commands>
       <player type="change" state="mood" value="10" />
@@ -1219,7 +1218,6 @@
   <item id="item_classc_driving_license" visible="true" max_count="1">
     <receive>
       <player undo="true" type="change" state="max_mood" value="200" />
-      <item type="remove" id="item_chauffeur_driving_license"/>
     </receive>
     <commands>
       <player type="change" state="mood" value="20" />
@@ -1229,7 +1227,6 @@
   <item id="item_classb_driving_license" visible="true" max_count="1">
     <receive>
       <player undo="true" type="change" state="max_mood" value="300" />
-      <item type="remove" id="item_classb_driving_license"/>
     </receive>
     <commands>
       <player type="change" state="mood" value="40" />
@@ -1239,7 +1236,6 @@
   <item id="item_classa_driving_license" visible="true" max_count="1">
     <receive>
       <player undo="true" type="change" state="max_mood" value="400" />
-      <item type="remove" id="item_classa_driving_license"/>
     </receive>
     <commands>
       <player type="change" state="mood" value="75" />
