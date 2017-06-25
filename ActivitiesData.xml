@@ -112,65 +112,14 @@
   </activity>
   
   
-  <!--<activity id="activity_dlc">
-    <levels>
-      <level name="dlc_courses"></level>
-      <level name="standard_dlc" experience="1000">
-        <requirements>
-          <requirement exp="job.job_driver.level equal 1"/>
-        </requirements>
-        <levelup>
-          <event id="event_standard_dlc_finished"/>
-        </levelup>
-      </level>
-      <level name="chauffeur_dlc" experience="4000">
-        <requirements>
-          <requirement exp="job.job_driver.level equal 2"/>
-        </requirements>
-        <levelup>
-          <event id="event_chauffeur_dlc_finished"/>
-        </levelup>
-      </level>
-      <level name="classc_dlc" experience="9000">
-        <requirements>
-          <requirement exp="job.job_driver.level equal 3"/>
-        </requirements>
-        <levelup>
-          <event id="event_classc_dlc_finished"/>
-        </levelup>
-      </level>
-      <level name="classb_dlc" experience="16000">
-        <requirements>
-          <requirement exp="job.job_driver.level equal 4"/>
-        </requirements>
-        <levelup>
-          <event id="event_classb_dlc_finished"/>
-        </levelup>
-      </level>
-      <level name="classa_dlc" experience="25000">
-        <requirements>
-          <requirement exp="job.job_driver.level equal 5"/>
-        </requirements>
-        <levelup>
-          <event id="event_classa_dlc_finished"/>
-        </levelup>
-      </level>
-    </levels>
-  </activity>-->
-
-
-
-  
-  
-  
   <activity id="activity_standard_dlc">
     <levels>
-      <level name="standard_dlc">
+      <level name="unfinished">
         <levelup>
           <event id="event_standard_dlc_finished"/>
         </levelup>
       </level>
-      <level name="standard_driving_license" experience="800">
+      <level name="finished" experience="5">
         <receive>
           <item type="add" id="item_standard_driving_license"/>
           <activity id="activity_standard_dlc" type="remove"/>
@@ -181,12 +130,12 @@
 
   <activity id="activity_chauffeur_dlc">
     <levels>
-      <level name="chauffeur_dlc">
+      <level name="unfinished">
         <levelup>
           <event id="event_chauffeur_dlc_finished"/>
         </levelup>
       </level>
-      <level name="chauffeur_driving_license" experience="3000">
+      <level name="finished" experience="3000">
         <receive>
           <item type="add" id="item_chauffeur_driving_license"/>
           <activity id="activity_chauffeur_dlc" type="remove"/>
@@ -197,12 +146,12 @@
 
   <activity id="activity_classc_dlc">
     <levels>
-      <level name="classc_dlc">
+      <level name="unfinished">
         <levelup>
           <event id="event_classc_dlc_finished"/>
         </levelup>
       </level>
-      <level name="classc_driving_license" experience="8000">
+      <level name="finished" experience="8000">
         <receive>
           <item type="add" id="item_classc_driving_license"/>
           <activity id="activity_classc_dlc" type="remove"/>
@@ -213,12 +162,12 @@
 
   <activity id="activity_classb_dlc">
     <levels>
-      <level name="classb_dlc">
+      <level name="unfinished">
         <levelup>
           <event id="event_classb_dlc_finished"/>
         </levelup>
       </level>
-      <level name="classb_driving_license" experience="14000">
+      <level name="" experience="14000">
         <receive>
           <item type="add" id="item_classb_driving_license"/>
           <activity id="activity_classb_dlc" type="remove"/>
@@ -229,12 +178,12 @@
 
   <activity id="activity_classa_dlc">
     <levels>
-      <level name="classa_dlc">
+      <level name="unfinished">
         <levelup>
           <event id="event_classa_dlc_finished"/>
         </levelup>
       </level>
-      <level name="classa_driving_license" experience="23000">
+      <level name="finished" experience="23000">
         <receive>
           <item type="add" id="item_classa_driving_license"/>
           <activity id="activity_classa_dlc" type="remove"/>

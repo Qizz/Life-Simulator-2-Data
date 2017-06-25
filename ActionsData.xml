@@ -170,7 +170,7 @@ JOB
 ================================================-->
 
 
-  <!--<action id="begin_career_driver" category="job">
+  <action id="begin_career_driver" category="job">
     <requirements>
       <job operation="no_job" />
       <event id="event_university_first_finished" operation="happened"/>
@@ -178,7 +178,7 @@ JOB
     <commands>
       <job id="job_driver" type="add" />
     </commands>
-  </action>-->
+  </action>
 
   <action id="do_driver_job" category="job">
     <requirements>
@@ -568,7 +568,7 @@ JOB
 
   <!-- DELIVERY COMPANY-->
   
-  <!--<action id="buy_delivery_company" category="job">
+  <action id="buy_delivery_company" category="job">
     <requirements>
       <item id="business_delivery_company" operation="unexist" />
       <requirement exp="job.job_driver.level gequal 5" />
@@ -577,7 +577,7 @@ JOB
       <player type="change" state="money" value="-900000" />
       <item type="add" id="business_delivery_company" />
     </commands>
-  </action>-->
+  </action>
 
   <action id="upgrade_delivery_company" category="job">
     <requirements>
@@ -1160,7 +1160,7 @@ STORE
 
   <!--PARKING SPACE-->
 
-  <!--<action id="buy_item_parking_space" category="store">
+  <action id="buy_item_parking_space" category="store">
     <requirements>
       <item id="item_apartment" operation="exist" />
       <item id="item_parking_space" operation="unexist" />
@@ -1169,7 +1169,7 @@ STORE
       <player type="change" state="money" value="-1500" />
       <item type="add" id="item_parking_space" />
     </commands>
-  </action>-->
+  </action>
 
 
   <!--CAR-->
