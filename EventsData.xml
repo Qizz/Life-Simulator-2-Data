@@ -323,14 +323,14 @@
     </commands>
   </event>
 
-  <event id="event_business_delivery_company_driver_resign" visible="true" chance="0.00255" great="false" random="true">
+  <event id="event_business_delivery_company_driver_resign" visible="true" chance="0.00155" great="false" random="true">
     <requirements>
       <item id="business_delivery_company" operation="exist" />
       <requirement exp="item.business_delivery_company.delivery_company_drivers greater 0" />
     </requirements>
     <commands>
       <item id="business_delivery_company" state="delivery_company_drivers" type="change" value="-1" />
-      <player type="set" state="money" value="35000 * item.business_delivery_company.level - 2500 * item.business_delivery_company.level * item.business_delivery_company.level - 5" />
+      <player type="change" state="money" value="35000 * item.business_delivery_company.level - 2500 * item.business_delivery_company.level * item.business_delivery_company.level - 5" />
     </commands>
   </event>
 
